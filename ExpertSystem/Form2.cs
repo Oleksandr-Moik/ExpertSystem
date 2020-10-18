@@ -16,11 +16,12 @@ namespace ExpertSystem
 {
     public partial class Form2 : Form
     {
-        private const string FilePath_Criteries = ".\\criteries.bin";
+        private const string CriteriesFilePath_Backup = ".\\criteries_backup.bin";
+        private const string CriteriesFilePath = ".\\criteries.bin";
 
         public List<KeyValuePair<int, string>> Criteries;
-        public int last_id;
-        private int curent_critery_id = -1;
+        public int LastIterativeCriteryID;
+        private string SelectedCriteryText = "(none)";
 
         public Form2()
         {
@@ -67,7 +68,7 @@ namespace ExpertSystem
                 {
                     combo.Items.Add(critery.Value);
                     grid.Rows.Add(critery.Key, critery.Value);
-                    last_id = critery.Key;
+                    LastIterativeCriteryID = critery.Key;
                 }
             }
             combo.SelectedIndex = 0;
@@ -77,7 +78,7 @@ namespace ExpertSystem
         {
             foreach(KeyValuePair<int, string> pair in Criteries)
             {
-                if (pair.Key == curent_critery_id)
+                if (pair.Value == SelectedCriteryText)
                 {
                     Criteries.Remove(pair);
                     break;
@@ -90,7 +91,7 @@ namespace ExpertSystem
         private void Write_Criteries()
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(FilePath_Criteries, FileMode.OpenOrCreate, FileAccess.Write);
+            Stream stream = new FileStream(CriteriesFilePath, FileMode.OpenOrCreate, FileAccess.Write);
 
             formatter.Serialize(stream, Criteries);
             stream.Close();
@@ -102,13 +103,13 @@ namespace ExpertSystem
             Stream stream = null;
             try
             {
-                stream = new FileStream(FilePath_Criteries, FileMode.Open, FileAccess.Read);
+                stream = new FileStream(CriteriesFilePath, FileMode.Open, FileAccess.Read);
                 if(stream.Length!=0)Criteries = (List<KeyValuePair<int, string>>)formatter.Deserialize(stream);
                 stream.Close();
             }
             catch (FileNotFoundException)
             {
-                stream = new FileStream(FilePath_Criteries, FileMode.CreateNew);
+                stream = new FileStream(CriteriesFilePath, FileMode.CreateNew);
             }
         }
 
@@ -117,9 +118,10 @@ namespace ExpertSystem
             List<KeyValuePair<int, string>> new_criteries = new List<KeyValuePair<int, string>>();
             foreach (KeyValuePair<int, string> pair in Criteries)
             {
-                if (pair.Key == curent_critery_id)
+                if (pair.Value == SelectedCriteryText)
                 {
-                    KeyValuePair<int, string> new_pair = new KeyValuePair<int, string>(curent_critery_id, textBox_CriteryTitle.Text);
+                    KeyValuePair<int, string> new_pair =
+                        new KeyValuePair<int, string>(pair.Key, textBox_CriteryTitle.Text);
                     new_criteries.Add(new_pair);
                 }
                 else
@@ -136,16 +138,20 @@ namespace ExpertSystem
         private void comboBox_CriteryTab_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox_CriteryTitle.Text = comboBox_CriteryTab.SelectedItem.ToString();
-            curent_critery_id = (comboBox_CriteryTab.SelectedIndex) - 1;
+            SelectedCriteryText = comboBox_CriteryTab.SelectedItem.ToString();
             label_underComboBoxCritery_Info.Text = "";
             label_underInputCriteryText_Info.Text = "";
         }
 
         private void button_CreateNewCritery_Click(object sender, EventArgs e)
         {
-            int new_id = ++last_id;
+            if (textBox_CriteryTitle.Text == "(none)") return;
+
+            int new_id = ++LastIterativeCriteryID;
             Criteries.Add(new KeyValuePair<int, string>(new_id, textBox_CriteryTitle.Text));
-            
+            comboBox_CriteryTab.SelectedIndex = comboBox_CriteryTab.Items.Count - 1;
+            button_EditCritery_Click(sender, e);
+
             RefreshCriteries();
             label_underInputCriteryText_Info.Text = "Створено";
         }
