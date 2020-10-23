@@ -16,10 +16,10 @@ using System.Windows.Forms;
 
 namespace ExpertSystem
 {
-    public partial class Form1 : Form
+    public partial class FromMain : Form
     {
 
-        public Form1()
+        public FromMain()
         {
             InitializeComponent();
         }
@@ -32,7 +32,11 @@ namespace ExpertSystem
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            (new FormEdit()).ShowDialog();
+            this.Hide();
+            if ((new FormEdit()).ShowDialog() == DialogResult.Cancel)
+            {
+                this.Show();
+            };
         }
 
 
