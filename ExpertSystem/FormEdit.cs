@@ -12,9 +12,12 @@ namespace ExpertSystem
 {
     public partial class FormEdit : Form
     {
-        public FormEdit()
+        private FormMain formMain;
+        public FormEdit(FormMain fromMain)
         {
             InitializeComponent();
+
+            this.formMain = fromMain;
         }
 
         private void FormEdit_Load(object sender, EventArgs e)

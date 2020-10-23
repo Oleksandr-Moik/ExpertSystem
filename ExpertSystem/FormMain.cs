@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +18,7 @@ using System.Windows.Forms;
 
 namespace ExpertSystem
 {
-    public partial class FromMain : Form
+    public partial class FormMain : Form
     {
         public const string QuestionsFilePath = ".\\questions.bin";
         public const string AnsversFilePath = ".\\ansvers.bin";
@@ -24,7 +26,7 @@ namespace ExpertSystem
         private List<Question> QuestionList;
         private List<KeyValuePair<string,string>> AnsverList;
 
-        public FromMain()
+        public FormMain()
         {
             InitializeComponent();
 
@@ -117,7 +119,7 @@ namespace ExpertSystem
             }
         }
 
-        private List<KeyValuePair<string, string>> LoadAnsver()
+        public List<KeyValuePair<string, string>> LoadAnsver()
         {
             IFormatter formatter = new BinaryFormatter();
             List<KeyValuePair<string, string>> list = null;
@@ -134,6 +136,24 @@ namespace ExpertSystem
             }
 
             return list;
+        }
+
+        public string GenerateUniqueStringKey(string salt)
+        {
+            StringBuilder builder = new StringBuilder();
+            Random random = new Random();
+            DateTime dateTime = DateTime.Now;
+            builder.Append(Convert.ToChar(salt));
+            char ch;
+            for (int i = 0; i < 12; i++)
+            {
+                ch = (i%2==0)? 
+                    Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65))):
+                    Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 97)));
+                builder.Append(ch);
+            }
+            builder.Append(Convert.ToChar(dateTime.ToString()));
+            return builder.ToString();
         }
 
         private void button3_Click(object sender, EventArgs e)
