@@ -21,22 +21,22 @@ namespace ExpertSystem
     public partial class FormMain : Form
     {
         public const string QuestionsFilePath = ".\\questions.bin";
-        public const string AnsversFilePath = ".\\ansvers.bin";
+        public const string AnswersFilePath = ".\\Answers.bin";
 
         private List<Question> QuestionList;
-        private List<KeyValuePair<string,string>> AnsverList;
+        private List<KeyValuePair<string,string>> AnswerList;
 
         public FormMain()
         {
             InitializeComponent();
+        }
 
+        private void FormMain_Load(object sender, EventArgs e)
+        {
             QuestionList = new List<Question>();
-            AnsverList = new List<KeyValuePair<string, string>>();
+            AnswerList = new List<KeyValuePair<string, string>>();
 
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(GenerateUniqueStringKey("Lonng text Lonng text Lonng text Lonng text Lonng text Lonng text Lonng text Lonng text Lonng text Lonng text Lonng text "));
-            }
+            LoadListsFromFiles(ref QuestionList, ref AnswerList);
         }
 
         /// <summary>
@@ -59,13 +59,12 @@ namespace ExpertSystem
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        List<string> test_keys = new List<string>();
         private void button2_Click(object sender, EventArgs e)
         {
             groupBox1.Enabled = true;
         }
 
-        private void SaveListToFile(List<Question> questionList, List<KeyValuePair<string, string>> ansverList)
+        private void SaveListsToFiles(List<Question> questionList, List<KeyValuePair<string, string>> AnswerList)
         {
             IFormatter formatter = new BinaryFormatter();
             Stream stream = null;
@@ -76,15 +75,15 @@ namespace ExpertSystem
                 formatter.Serialize(stream, questionList);
                 stream.Close();
             }
-            if (ansverList != null)
+            if (AnswerList != null)
             {
-                stream = new FileStream(AnsversFilePath, FileMode.OpenOrCreate, FileAccess.Read);
-                formatter.Serialize(stream, ansverList);
+                stream = new FileStream(AnswersFilePath, FileMode.OpenOrCreate, FileAccess.Read);
+                formatter.Serialize(stream, AnswerList);
                 stream.Close();
             }
         }
 
-        private void LoadQeustions(ref List<Question> questionList, ref List<KeyValuePair<string, string>> ansverList)
+        private void LoadListsFromFiles(ref List<Question> questionList, ref List<KeyValuePair<string, string>> AnswerList)
         {
             IFormatter formatter = new BinaryFormatter();
             Stream stream = null;
@@ -106,42 +105,74 @@ namespace ExpertSystem
                     stream.Close();
                 }
             }
-            if (ansverList != null)
+            if (AnswerList != null)
             {
                 try
                 {
-                    stream = new FileStream(AnsversFilePath, FileMode.Open, FileAccess.Read);
+                    stream = new FileStream(AnswersFilePath, FileMode.Open, FileAccess.Read);
                     if (stream.Length != 0)
                     {
-                        ansverList = (List<KeyValuePair<string, string>>)formatter.Deserialize(stream);
+                        AnswerList = (List<KeyValuePair<string, string>>)formatter.Deserialize(stream);
                     }
                     stream.Close();
                 }
                 catch (FileNotFoundException)
                 {
-                    stream = new FileStream(AnsversFilePath, FileMode.Create);
+                    stream = new FileStream(AnswersFilePath, FileMode.Create);
                     stream.Close();
                 }
             }
         }
 
-        public List<KeyValuePair<string, string>> LoadAnsver()
+        public List<Question> GetQuestionList()
         {
-            IFormatter formatter = new BinaryFormatter();
-            List<KeyValuePair<string, string>> list = null;
-            Stream stream = null;
-            try
-            {
-                stream = new FileStream(AnsversFilePath, FileMode.Open, FileAccess.Read);
-                if (stream.Length != 0) list = (List<KeyValuePair<string, string>>)formatter.Deserialize(stream);
-                stream.Close();
-            }
-            catch (FileNotFoundException)
-            {
-                stream = new FileStream(AnsversFilePath, FileMode.Create);
-            }
+            return QuestionList;
+        }
 
-            return list;
+        public List<KeyValuePair<string, string>> GetAnswerList()
+        {
+            return AnswerList;
+        }
+
+        public void AddAnswer(string text)
+        {
+
+        }
+
+        public void RemoveAnswer(string key)
+        {
+
+        }
+
+        public void UpdateAnswer(string key, string new_text)
+        {
+
+        }
+
+        public void GetAnswer(string key)
+        {
+
+        }
+
+
+        public Question AddQuestion(Question q)
+        {
+            return null;
+        }
+
+        public void RemoveQuestion(string key)
+        {
+
+        }
+
+        public void UpdateQuestion(string key, Question q)
+        {
+
+        }
+
+        public void GetQuetion(string key)
+        {
+
         }
 
         public string GenerateUniqueStringKey(string salt)
@@ -167,7 +198,7 @@ namespace ExpertSystem
         
         }
 
-
+        
     }
 
 }

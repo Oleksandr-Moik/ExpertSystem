@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace ExpertSystem
     public partial class FormEdit : Form
     {
         private FormMain formMain;
+
         public FormEdit(FormMain fromMain)
         {
             InitializeComponent();
@@ -26,6 +28,26 @@ namespace ExpertSystem
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadQuetionList()
+        {
+
+        }
+
+        private void LoadAnswerList()
+        {
+
+        }
+
+        private void SelectAnswer()
+        {
+
+        }
+
+        private void SelectQuestion()
         {
 
         }

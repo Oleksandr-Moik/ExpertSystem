@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ExpertSystem
 {
     [Serializable]
-    class Question : Object
+    public class Question : Object
     {
         public string KeyIndex { get; set; }
         public string Text { get; set; }
@@ -15,8 +15,8 @@ namespace ExpertSystem
         public string NextLeftQuetion__KeyIndex { get; set; }
         public string NextRightQuetion_KeyIndex { get; set; }
 
-        public string NextLeftAnsver_KeyIndex { get; set; }
-        public string NextRightAnsver_KeyIndex { get; set; }
+        public string NextLeftAnswer_KeyIndex { get; set; }
+        public string NextRightAnswer_KeyIndex { get; set; }
 
         public Question(string key, string text)
         {
