@@ -18,10 +18,18 @@ namespace ExpertSystem
 {
     public partial class FromMain : Form
     {
+        public const string QuestionsFilePath = ".\\questions.bin";
+        public const string AnsversFilePath = ".\\ansvers.bin";
+
+        private List<Question> QuestionList;
+        private List<KeyValuePair<string,string>> AnsverList;
 
         public FromMain()
         {
             InitializeComponent();
+
+            QuestionList = new List<Question>();
+            AnsverList = new List<KeyValuePair<string, string>>();
         }
 
         /// <summary>
@@ -33,12 +41,11 @@ namespace ExpertSystem
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            if ((new FormEdit()).ShowDialog() == DialogResult.Cancel)
+            if ((new FormEdit(this)).ShowDialog() == DialogResult.Cancel)
             {
                 this.Show();
             };
         }
-
 
         /// <summary>
         /// launch test
@@ -47,33 +54,95 @@ namespace ExpertSystem
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            LoadFirstSituation();
             groupBox1.Enabled = true;
         }
-
-        private void LoadFirstSituation()
+        
+        private void SaveListToFile(List<Question> questionList, List<KeyValuePair<string, string>> ansverList)
         {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = null;
 
+            if (questionList != null)
+            {
+                stream = new FileStream(QuestionsFilePath, FileMode.OpenOrCreate, FileAccess.Read);
+                formatter.Serialize(stream, questionList);
+                stream.Close();
+            }
+            if (ansverList != null)
+            {
+                stream = new FileStream(AnsversFilePath, FileMode.OpenOrCreate, FileAccess.Read);
+                formatter.Serialize(stream, ansverList);
+                stream.Close();
+            }
         }
 
-        private void LoadNextProblem()
+        private void LoadQeustions(ref List<Question> questionList, ref List<KeyValuePair<string, string>> ansverList)
         {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = null;
 
+            if (questionList != null)
+            {
+                try
+                {
+                    stream = new FileStream(QuestionsFilePath, FileMode.Open, FileAccess.Read);
+                    if (stream.Length != 0)
+                    {
+                        questionList = (List<Question>)formatter.Deserialize(stream);
+                    }
+                    stream.Close();
+                }
+                catch (FileNotFoundException)
+                {
+                    stream = new FileStream(QuestionsFilePath, FileMode.Create);
+                    stream.Close();
+                }
+            }
+            if (ansverList != null)
+            {
+                try
+                {
+                    stream = new FileStream(AnsversFilePath, FileMode.Open, FileAccess.Read);
+                    if (stream.Length != 0)
+                    {
+                        ansverList = (List<KeyValuePair<string, string>>)formatter.Deserialize(stream);
+                    }
+                    stream.Close();
+                }
+                catch (FileNotFoundException)
+                {
+                    stream = new FileStream(AnsversFilePath, FileMode.Create);
+                    stream.Close();
+                }
+            }
         }
 
-        private void CheckOnResult()
+        private List<KeyValuePair<string, string>> LoadAnsver()
         {
+            IFormatter formatter = new BinaryFormatter();
+            List<KeyValuePair<string, string>> list = null;
+            Stream stream = null;
+            try
+            {
+                stream = new FileStream(AnsversFilePath, FileMode.Open, FileAccess.Read);
+                if (stream.Length != 0) list = (List<KeyValuePair<string, string>>)formatter.Deserialize(stream);
+                stream.Close();
+            }
+            catch (FileNotFoundException)
+            {
+                stream = new FileStream(AnsversFilePath, FileMode.Create);
+            }
 
+            return list;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CheckOnResult();
-            LoadNextProblem();
+        
         }
 
-       
+
     }
-       
+
 }
 

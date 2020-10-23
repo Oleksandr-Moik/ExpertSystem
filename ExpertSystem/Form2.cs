@@ -26,22 +26,22 @@ namespace ExpertSystem
         public Form2()
         {
             InitializeComponent();
-            Criteries = new List<KeyValuePair<int, string>>();
+            //Criteries = new List<KeyValuePair<int, string>>();
         }
 
         private void button_createModeCritery_Click(object sender, EventArgs e)
         {
-            groupBox_CriteryTab.Text = "Створення";
-            comboBox_CriteryTab.SelectedItem = 0;
-            button_CreateNewCritery.Visible = true;
-            button_SaveCriteryEditing.Visible = false;
-            textBox_CriteryTitle.Text = "";
+            //groupBox_CriteryTab.Text = "Створення";
+            //comboBox_CriteryTab.SelectedItem = 0;
+            //button_CreateNewCritery.Visible = true;
+            //button_SaveCriteryEditing.Visible = false;
+            //textBox_CriteryTitle.Text = "";
         }
         private void button_EditCritery_Click(object sender, EventArgs e)
         {
-            groupBox_CriteryTab.Text = "Редагування";
-            button_CreateNewCritery.Visible = false;
-            button_SaveCriteryEditing.Visible = true;
+            //groupBox_CriteryTab.Text = "Редагування";
+            //button_CreateNewCritery.Visible = false;
+            //button_SaveCriteryEditing.Visible = true;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -137,23 +137,23 @@ namespace ExpertSystem
 
         private void comboBox_CriteryTab_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox_CriteryTitle.Text = comboBox_CriteryTab.SelectedItem.ToString();
-            SelectedCriteryText = comboBox_CriteryTab.SelectedItem.ToString();
-            label_underComboBoxCritery_Info.Text = "";
-            label_underInputCriteryText_Info.Text = "";
+            //textBox_CriteryTitle.Text = comboBox_CriteryTab.SelectedItem.ToString();
+            //SelectedCriteryText = comboBox_CriteryTab.SelectedItem.ToString();
+            //label_underComboBoxCritery_Info.Text = "";
+            //label_underInputCriteryText_Info.Text = "";
         }
 
         private void button_CreateNewCritery_Click(object sender, EventArgs e)
         {
-            if (textBox_CriteryTitle.Text == "(none)") return;
+            //if (textBox_CriteryTitle.Text == "(none)") return;
 
-            int new_id = ++LastIterativeCriteryID;
-            Criteries.Add(new KeyValuePair<int, string>(new_id, textBox_CriteryTitle.Text));
-            comboBox_CriteryTab.SelectedIndex = comboBox_CriteryTab.Items.Count - 1;
-            button_EditCritery_Click(sender, e);
+            //int new_id = ++LastIterativeCriteryID;
+            //Criteries.Add(new KeyValuePair<int, string>(new_id, textBox_CriteryTitle.Text));
+            //comboBox_CriteryTab.SelectedIndex = comboBox_CriteryTab.Items.Count - 1;
+            //button_EditCritery_Click(sender, e);
 
-            RefreshCriteries();
-            label_underInputCriteryText_Info.Text = "Створено";
+            //RefreshCriteries();
+            //label_underInputCriteryText_Info.Text = "Створено";
         }
 
         private void RefreshCriteries()

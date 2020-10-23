@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ExpertSystem
 {
-    class Question
+    [Serializable]
+    class Question : Object
     {
         public string KeyIndex { get; set; }
         public string Text { get; set; }
