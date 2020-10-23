@@ -32,6 +32,11 @@ namespace ExpertSystem
 
             QuestionList = new List<Question>();
             AnsverList = new List<KeyValuePair<string, string>>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(GenerateUniqueStringKey("Lonng text Lonng text Lonng text Lonng text Lonng text Lonng text Lonng text Lonng text Lonng text Lonng text Lonng text "));
+            }
         }
 
         /// <summary>
@@ -54,11 +59,12 @@ namespace ExpertSystem
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        List<string> test_keys = new List<string>();
         private void button2_Click(object sender, EventArgs e)
         {
             groupBox1.Enabled = true;
         }
-        
+
         private void SaveListToFile(List<Question> questionList, List<KeyValuePair<string, string>> ansverList)
         {
             IFormatter formatter = new BinaryFormatter();
@@ -143,7 +149,6 @@ namespace ExpertSystem
             StringBuilder builder = new StringBuilder();
             Random random = new Random();
             DateTime dateTime = DateTime.Now;
-            builder.Append(Convert.ToChar(salt));
             char ch;
             for (int i = 0; i < 12; i++)
             {
@@ -152,7 +157,8 @@ namespace ExpertSystem
                     Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 97)));
                 builder.Append(ch);
             }
-            builder.Append(Convert.ToChar(dateTime.ToString()));
+            builder.Append(Convert.ToInt64(salt[random.Next(0, salt.Length)]));
+            builder.Append(dateTime.Millisecond.ToString());
             return builder.ToString();
         }
 
