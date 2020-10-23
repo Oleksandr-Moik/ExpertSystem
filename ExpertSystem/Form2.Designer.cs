@@ -43,10 +43,23 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.Column_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_title = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,12 +79,15 @@
             this.Column_critery_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_critery_text = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl_Criteries = new System.Windows.Forms.TabControl();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.tabPage_Criterie.SuspendLayout();
@@ -220,6 +236,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button10);
+            this.tabPage2.Controls.Add(this.button9);
+            this.tabPage2.Controls.Add(this.button8);
+            this.tabPage2.Controls.Add(this.comboBox2);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.dataGridView4);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -230,11 +250,45 @@
             this.tabPage2.Text = "Ситуації";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(475, 83);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 3;
+            this.button10.Text = "Create mode";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(282, 62);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(121, 23);
+            this.button9.TabIndex = 3;
+            this.button9.Text = "Delete selected";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(282, 33);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(121, 23);
+            this.button8.TabIndex = 3;
+            this.button8.Text = "Edit selected";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(282, 6);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 2;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.panel1);
             this.groupBox2.Controls.Add(this.dataGridView5);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Location = new System.Drawing.Point(276, 112);
             this.groupBox2.Name = "groupBox2";
@@ -243,35 +297,122 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
-            // dataGridView5
+            // panel1
             // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(35, 198);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(216, 222);
-            this.dataGridView5.TabIndex = 2;
+            this.panel1.Controls.Add(this.comboBox3);
+            this.panel1.Controls.Add(this.button7);
+            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.richTextBox2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.radioButton2);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(507, 268);
+            this.panel1.TabIndex = 10;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(298, 28);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.TabIndex = 9;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(385, 203);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(92, 26);
+            this.button7.TabIndex = 8;
+            this.button7.Text = "Create";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(8, 28);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 3;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(285, 202);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(94, 27);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "Apply";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(8, 76);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(265, 70);
+            this.richTextBox2.TabIndex = 4;
+            this.richTextBox2.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(27, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Title";
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(145, 175);
+            this.radioButton2.Location = new System.Drawing.Point(139, 245);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
+            this.radioButton2.Size = new System.Drawing.Size(14, 13);
             this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "radioButton2";
             this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 60);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Description";
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(35, 174);
+            this.radioButton1.Location = new System.Drawing.Point(13, 245);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.Size = new System.Drawing.Size(14, 13);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
             this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(295, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Next";
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView5.Location = new System.Drawing.Point(3, 284);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.Size = new System.Drawing.Size(507, 156);
+            this.dataGridView5.TabIndex = 12;
             // 
             // dataGridView4
             // 
@@ -343,9 +484,9 @@
             this.groupBox_CriteryTab.Controls.Add(this.textBox_CriteryTitle);
             this.groupBox_CriteryTab.Controls.Add(this.button_SaveCriteryEditing);
             this.groupBox_CriteryTab.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox_CriteryTab.Location = new System.Drawing.Point(219, 73);
+            this.groupBox_CriteryTab.Location = new System.Drawing.Point(219, 135);
             this.groupBox_CriteryTab.Name = "groupBox_CriteryTab";
-            this.groupBox_CriteryTab.Size = new System.Drawing.Size(570, 482);
+            this.groupBox_CriteryTab.Size = new System.Drawing.Size(570, 420);
             this.groupBox_CriteryTab.TabIndex = 4;
             this.groupBox_CriteryTab.TabStop = false;
             this.groupBox_CriteryTab.Text = "groupBox_CriteryTab";
@@ -353,14 +494,14 @@
             // label_underInputCriteryText_Info
             // 
             this.label_underInputCriteryText_Info.AutoSize = true;
-            this.label_underInputCriteryText_Info.Location = new System.Drawing.Point(90, 42);
+            this.label_underInputCriteryText_Info.Location = new System.Drawing.Point(18, 64);
             this.label_underInputCriteryText_Info.Name = "label_underInputCriteryText_Info";
             this.label_underInputCriteryText_Info.Size = new System.Drawing.Size(0, 13);
             this.label_underInputCriteryText_Info.TabIndex = 3;
             // 
             // button_CreateNewCritery
             // 
-            this.button_CreateNewCritery.Location = new System.Drawing.Point(273, 16);
+            this.button_CreateNewCritery.Location = new System.Drawing.Point(146, 39);
             this.button_CreateNewCritery.Name = "button_CreateNewCritery";
             this.button_CreateNewCritery.Size = new System.Drawing.Size(75, 23);
             this.button_CreateNewCritery.TabIndex = 2;
@@ -370,53 +511,53 @@
             // 
             // textBox_CriteryTitle
             // 
-            this.textBox_CriteryTitle.Location = new System.Drawing.Point(90, 19);
+            this.textBox_CriteryTitle.Location = new System.Drawing.Point(9, 41);
             this.textBox_CriteryTitle.Name = "textBox_CriteryTitle";
-            this.textBox_CriteryTitle.Size = new System.Drawing.Size(121, 20);
+            this.textBox_CriteryTitle.Size = new System.Drawing.Size(131, 20);
             this.textBox_CriteryTitle.TabIndex = 1;
             // 
             // button_SaveCriteryEditing
             // 
             this.button_SaveCriteryEditing.Location = new System.Drawing.Point(9, 19);
             this.button_SaveCriteryEditing.Name = "button_SaveCriteryEditing";
-            this.button_SaveCriteryEditing.Size = new System.Drawing.Size(75, 43);
+            this.button_SaveCriteryEditing.Size = new System.Drawing.Size(131, 20);
             this.button_SaveCriteryEditing.TabIndex = 0;
-            this.button_SaveCriteryEditing.Text = "Зберегти зміни";
+            this.button_SaveCriteryEditing.Text = "Застосувати зміни";
             this.button_SaveCriteryEditing.UseVisualStyleBackColor = true;
             this.button_SaveCriteryEditing.Click += new System.EventHandler(this.button_SaveCriteryEditing_Click);
             // 
             // comboBox_CriteryTab
             // 
             this.comboBox_CriteryTab.FormattingEnabled = true;
-            this.comboBox_CriteryTab.Location = new System.Drawing.Point(309, 27);
+            this.comboBox_CriteryTab.Location = new System.Drawing.Point(228, 6);
             this.comboBox_CriteryTab.Name = "comboBox_CriteryTab";
-            this.comboBox_CriteryTab.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_CriteryTab.Size = new System.Drawing.Size(147, 21);
             this.comboBox_CriteryTab.TabIndex = 3;
             this.comboBox_CriteryTab.SelectedIndexChanged += new System.EventHandler(this.comboBox_CriteryTab_SelectedIndexChanged);
             // 
             // button_RemoveCritery
             // 
-            this.button_RemoveCritery.Location = new System.Drawing.Point(228, 13);
+            this.button_RemoveCritery.Location = new System.Drawing.Point(228, 62);
             this.button_RemoveCritery.Name = "button_RemoveCritery";
-            this.button_RemoveCritery.Size = new System.Drawing.Size(75, 23);
+            this.button_RemoveCritery.Size = new System.Drawing.Size(147, 23);
             this.button_RemoveCritery.TabIndex = 2;
-            this.button_RemoveCritery.Text = "Видалити";
+            this.button_RemoveCritery.Text = "Видалити вибраний";
             this.button_RemoveCritery.UseVisualStyleBackColor = true;
             this.button_RemoveCritery.Click += new System.EventHandler(this.button_RemoveCritery_Click);
             // 
             // button_EditCritery
             // 
-            this.button_EditCritery.Location = new System.Drawing.Point(228, 42);
+            this.button_EditCritery.Location = new System.Drawing.Point(228, 33);
             this.button_EditCritery.Name = "button_EditCritery";
-            this.button_EditCritery.Size = new System.Drawing.Size(75, 23);
+            this.button_EditCritery.Size = new System.Drawing.Size(147, 23);
             this.button_EditCritery.TabIndex = 1;
-            this.button_EditCritery.Text = "Редагувати";
+            this.button_EditCritery.Text = "Редагувати вибраний";
             this.button_EditCritery.UseVisualStyleBackColor = true;
             this.button_EditCritery.Click += new System.EventHandler(this.button_EditCritery_Click);
             // 
             // button_createModeCritery
             // 
-            this.button_createModeCritery.Location = new System.Drawing.Point(492, 27);
+            this.button_createModeCritery.Location = new System.Drawing.Point(431, 106);
             this.button_createModeCritery.Name = "button_createModeCritery";
             this.button_createModeCritery.Size = new System.Drawing.Size(124, 23);
             this.button_createModeCritery.TabIndex = 1;
@@ -467,6 +608,21 @@
             this.tabControl_Criteries.Size = new System.Drawing.Size(800, 584);
             this.tabControl_Criteries.TabIndex = 5;
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(33, 242);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 3;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Enabled = false;
+            this.textBox4.Location = new System.Drawing.Point(159, 242);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 3;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,7 +639,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.tabPage_Criterie.ResumeLayout(false);
@@ -536,5 +693,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_critery_text;
         private System.Windows.Forms.Label label_underComboBoxCritery_Info;
         private System.Windows.Forms.Label label_underInputCriteryText_Info;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

@@ -55,7 +55,7 @@ namespace ExpertSystem
             ComboBox combo = comboBox_CriteryTab;
             DataGridView grid = dataGridView_CriteryTabAllCriteries;
             
-            Read_Criteries();
+            Read_Criteries(CriteriesFilePath);
 
             combo.Items.Clear();
             grid.Rows.Clear();
@@ -88,28 +88,28 @@ namespace ExpertSystem
             label_underComboBoxCritery_Info.Text = "Видалено";
         }
 
-        private void Write_Criteries()
+        private void Write_Criteries(string FilePath)
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(CriteriesFilePath, FileMode.OpenOrCreate, FileAccess.Write);
+            Stream stream = new FileStream(FilePath, FileMode.OpenOrCreate, FileAccess.Write);
 
             formatter.Serialize(stream, Criteries);
             stream.Close();
         }
 
-        private void Read_Criteries()
+        private void Read_Criteries(string FilePath)
         {
             IFormatter formatter = new BinaryFormatter();
             Stream stream = null;
             try
             {
-                stream = new FileStream(CriteriesFilePath, FileMode.Open, FileAccess.Read);
+                stream = new FileStream(CriteriesFilePath_Backup, FileMode.Open, FileAccess.Read);
                 if(stream.Length!=0)Criteries = (List<KeyValuePair<int, string>>)formatter.Deserialize(stream);
                 stream.Close();
             }
             catch (FileNotFoundException)
-            {
-                stream = new FileStream(CriteriesFilePath, FileMode.CreateNew);
+            { 
+                stream = new FileStream(FilePath, FileMode.Create);
             }
         }
 
@@ -158,9 +158,14 @@ namespace ExpertSystem
 
         private void RefreshCriteries()
         {
-            Write_Criteries();
-            Read_Criteries();
+            Write_Criteries(CriteriesFilePath);
+            Read_Criteries(CriteriesFilePath);
             LoadCriteries();
         }
+
+
+
+
+
     }
 }

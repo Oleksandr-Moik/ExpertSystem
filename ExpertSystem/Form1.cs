@@ -26,13 +26,13 @@ namespace ExpertSystem
 
         /// <summary>
         /// edit button
-        /// open edit form as dialog
+        /// <para>open edit form as dialog</para>
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            (new Form2()).ShowDialog();
+            (new FormEdit()).ShowDialog();
         }
 
 
@@ -43,9 +43,8 @@ namespace ExpertSystem
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            button1.Visible = false;
             LoadFirstSituation();
-            groupBox1.Visible = true;
+            groupBox1.Enabled = true;
         }
 
         private void LoadFirstSituation()
