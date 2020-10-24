@@ -22,6 +22,11 @@ namespace ExpertSystem
         {
             this.KeyIndex = key;
             this.Text = text;
+            
+            NextLeftQuetion__KeyIndex = null;
+            NextRightQuetion_KeyIndex = null;
+            NextLeftAnswer_KeyIndex = null;
+            NextRightAnswer_KeyIndex = null;
         }
     }
 }
