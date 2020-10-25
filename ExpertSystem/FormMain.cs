@@ -29,6 +29,8 @@ namespace ExpertSystem
         private ArrayList QuestionList;
         private List<KeyValuePair<string,string>> AnswerList;
 
+        private Question question;
+
         public FormMain()
         {
             InitializeComponent();
@@ -259,7 +261,10 @@ namespace ExpertSystem
             return builder.ToString();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+
+
+
+        private void button_Next_Click(object sender, EventArgs e)
         {
         
         }

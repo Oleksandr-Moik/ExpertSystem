@@ -153,7 +153,7 @@ namespace ExpertSystem
             textBox_QuestionText.Text = SelectedQuestion.Text;
             comboBox_yes_leaf.Text = "";
             comboBox_no_leaf.Text = "";
-
+            //if (SelectedQuestion.Text == "Question test") SelectedQuestion.KeyIndex = "head";
 
             if (SelectedQuestion.NextLeftLeaf_IsAnswer) // yes
             {
