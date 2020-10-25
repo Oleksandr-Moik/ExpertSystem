@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="richTextBox_content.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century, 16.2pt, style=Italic</value>
+  </data>
   <data name="richTextBox_content.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 23</value>
   </data>
@@ -126,7 +129,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="richTextBox_content.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 99</value>
+    <value>523, 118</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="richTextBox_content.TabIndex" type="System.Int32, mscorlib">
@@ -150,17 +153,20 @@
   <data name="radioButton_no.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="radioButton_no.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
   <data name="radioButton_no.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="radioButton_no.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 149</value>
+    <value>280, 149</value>
   </data>
   <data name="radioButton_no.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="radioButton_no.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 21</value>
+    <value>66, 33</value>
   </data>
   <data name="radioButton_no.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -183,14 +189,17 @@
   <data name="radioButton_yes.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="radioButton_yes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
   <data name="radioButton_yes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 149</value>
+    <value>160, 149</value>
   </data>
   <data name="radioButton_yes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="radioButton_yes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 21</value>
+    <value>76, 33</value>
   </data>
   <data name="radioButton_yes.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -210,8 +219,11 @@
   <data name="&gt;&gt;radioButton_yes.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="button_next.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt, style=Bold</value>
+  </data>
   <data name="button_next.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 196</value>
+    <value>187, 201</value>
   </data>
   <data name="button_next.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -253,7 +265,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>721, 277</value>
+    <value>575, 277</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -270,20 +282,23 @@
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="button_edit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Italic</value>
+  </data>
   <data name="button_edit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>361, 284</value>
+    <value>364, 285</value>
   </data>
   <data name="button_edit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="button_edit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 28</value>
+    <value>198, 49</value>
   </data>
   <data name="button_edit.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="button_edit.Text" xml:space="preserve">
-    <value>Edit</value>
+    <value>Edit System</value>
   </data>
   <data name="&gt;&gt;button_edit.Name" xml:space="preserve">
     <value>button_edit</value>
@@ -297,14 +312,17 @@
   <data name="&gt;&gt;button_edit.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="button_launch.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt, style=Bold, Italic</value>
+  </data>
   <data name="button_launch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 284</value>
+    <value>13, 285</value>
   </data>
   <data name="button_launch.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="button_launch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 28</value>
+    <value>272, 50</value>
   </data>
   <data name="button_launch.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -331,7 +349,7 @@
     <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>721, 319</value>
+    <value>575, 347</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>8, 7, 8, 7</value>

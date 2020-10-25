@@ -41,6 +41,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Silver;
             this.groupBox1.Controls.Add(this.richTextBox_content);
             this.groupBox1.Controls.Add(this.radioButton_no);
             this.groupBox1.Controls.Add(this.radioButton_yes);
@@ -86,6 +87,7 @@
             // button_launch
             // 
             resources.ApplyResources(this.button_launch, "button_launch");
+            this.button_launch.ForeColor = System.Drawing.Color.Black;
             this.button_launch.Name = "button_launch";
             this.button_launch.UseVisualStyleBackColor = true;
             this.button_launch.Click += new System.EventHandler(this.button_launch_Click);
@@ -94,6 +96,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Controls.Add(this.button_launch);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button_edit);
