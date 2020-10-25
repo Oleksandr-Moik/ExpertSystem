@@ -34,40 +34,40 @@ namespace ExpertSystem
 
         private void FormEdit_Load(object sender, EventArgs e)
         {
-            LoadAnswerListToComboAndGrid(comboBox_Answers, dataGridView_Answers);
-            LoadQuestionListToComboAndGrid(comboBox_Questions, dataGridView_Questions);
+            LoadAnswerListToComboAndGrid();
+            LoadQuestionListToComboAndGrid();
         }
 
        
-        private void LoadQuestionListToComboAndGrid(ComboBox comboBox, DataGridView dataGridView)
+        private void LoadQuestionListToComboAndGrid()
         {
-            dataGridView.Rows.Clear();
-            comboBox.Items.Clear();
+            dataGridView_Questions.Rows.Clear();
+            comboBox_Questions.Items.Clear();
             
             foreach (Question question in formMain.GetQuestionList())
             {
-                dataGridView.Rows.Add(question.Text);
-                comboBox.Items.Add(question.Text);
+                dataGridView_Questions.Rows.Add(question.Text);
+                comboBox_Questions.Items.Add(question.Text);
             }
-            if (comboBox.Items.Count != 0)
+            if (comboBox_Questions.Items.Count != 0)
             {
-                comboBox.SelectedIndex = 0;
+                comboBox_Questions.SelectedIndex = 0;
             }
         }
        
-        private void LoadAnswerListToComboAndGrid(ComboBox comboBox, DataGridView dataGridView)
+        private void LoadAnswerListToComboAndGrid()
         {
-            dataGridView.Rows.Clear();
-            comboBox.Items.Clear();
+            dataGridView_Answers.Rows.Clear();
+            comboBox_Answers.Items.Clear();
 
             foreach (KeyValuePair<string, string> answer in formMain.GetAnswerList())
             {
-                dataGridView.Rows.Add(answer.Value);
-                comboBox.Items.Add(answer.Value);
+                dataGridView_Answers.Rows.Add(answer.Value);
+                comboBox_Answers.Items.Add(answer.Value);
             }
-            if (comboBox.Items.Count != 0)
+            if (comboBox_Answers.Items.Count != 0)
             {
-                comboBox.SelectedIndex = 0;
+                comboBox_Answers.SelectedIndex = 0;
             }
         }
 
@@ -124,7 +124,7 @@ namespace ExpertSystem
         private void button_CreateAnswer_Click(object sender, EventArgs e)
         {
             formMain.AddAnswer(textBox_AnswerText.Text);
-            LoadAnswerListToComboAndGrid(comboBox_Answers, dataGridView_Answers);
+            LoadAnswerListToComboAndGrid();
             comboBox_Answers.SelectedIndex = comboBox_Answers.Items.Count - 1;
             formMain.SaveAnswerListToFile();
         }
@@ -132,8 +132,8 @@ namespace ExpertSystem
         private void button_RemoveAnswer_Click(object sender, EventArgs e)
         {
             formMain.RemoveAnswer(SelectedAnswerKey);
+            LoadAnswerListToComboAndGrid();
             comboBox_Answers.SelectedIndex = 0;
-            LoadAnswerListToComboAndGrid(comboBox_Answers, dataGridView_Answers);
             formMain.SaveAnswerListToFile();
         }
 
@@ -141,7 +141,7 @@ namespace ExpertSystem
         {
             string text = textBox_AnswerText.Text;
             formMain.UpdateAnswer(SelectedAnswerKey, text);
-            LoadAnswerListToComboAndGrid(comboBox_Answers, dataGridView_Answers);
+            LoadAnswerListToComboAndGrid();
             formMain.SaveAnswerListToFile();
         }
 
@@ -212,14 +212,14 @@ namespace ExpertSystem
             
             formMain.AddQuestion(SelectedQuestion);
             formMain.SaveQuestionListToFile();
-            LoadQuestionListToComboAndGrid(comboBox_Questions, dataGridView_Questions);
+            LoadQuestionListToComboAndGrid();
             comboBox_Questions.SelectedIndex = comboBox_Questions.Items.Count - 1;
         }
 
         private void button_RemoveQuestion_Click(object sender, EventArgs e)
         {
             formMain.RemoveQuestion(SelectedQuestion.Key);
-            LoadQuestionListToComboAndGrid(comboBox_Questions, dataGridView_Questions);
+            LoadQuestionListToComboAndGrid();
         }
 
         private void button_UpdateQuestion_Click(object sender, EventArgs e)
@@ -228,7 +228,7 @@ namespace ExpertSystem
 
             formMain.UpdateQuestion(SelectedQuestion.Key, SelectedQuestion);            
             formMain.SaveQuestionListToFile();
-            LoadQuestionListToComboAndGrid(comboBox_Questions, dataGridView_Questions);
+            LoadQuestionListToComboAndGrid();
             comboBox_Questions.SelectedIndex = comboBox_Questions.Items.Count - 1;
         }
 
@@ -257,14 +257,14 @@ namespace ExpertSystem
 
             formMain.UpdateQuestion(SelectedQuestion.Key, SelectedQuestion);
             formMain.SaveQuestionListToFile();
-            LoadQuestionListToComboAndGrid(comboBox_Questions, dataGridView_Questions);
+            LoadQuestionListToComboAndGrid();
             comboBox_Questions.SelectedIndex = comboBox_Questions.Items.Count - 1;
         }
 
         private void button_DiscardTreeChanges_Click(object sender, EventArgs e)
         {
             int index = comboBox_Questions.SelectedIndex;
-            LoadQuestionListToComboAndGrid(comboBox_Questions, dataGridView_Questions);
+            LoadQuestionListToComboAndGrid();
             comboBox_Questions.SelectedIndex = index;
         }
 
