@@ -77,7 +77,7 @@
             this.tabControl_Criteries.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl_Criteries.Name = "tabControl_Criteries";
             this.tabControl_Criteries.SelectedIndex = 0;
-            this.tabControl_Criteries.Size = new System.Drawing.Size(814, 399);
+            this.tabControl_Criteries.Size = new System.Drawing.Size(802, 399);
             this.tabControl_Criteries.TabIndex = 6;
             // 
             // tabPage2
@@ -88,7 +88,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(806, 370);
+            this.tabPage2.Size = new System.Drawing.Size(794, 370);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Questions";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -111,10 +111,10 @@
             this.panel3.Controls.Add(this.radioButton2);
             this.panel3.Controls.Add(this.radioButton1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(251, 4);
+            this.panel3.Location = new System.Drawing.Point(4, 4);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(551, 362);
+            this.panel3.Size = new System.Drawing.Size(539, 362);
             this.panel3.TabIndex = 9;
             // 
             // checkBox_no_isAnswer
@@ -127,6 +127,7 @@
             this.checkBox_no_isAnswer.TabIndex = 20;
             this.checkBox_no_isAnswer.Text = "is Answer";
             this.checkBox_no_isAnswer.UseVisualStyleBackColor = true;
+            this.checkBox_no_isAnswer.CheckedChanged += new System.EventHandler(this.checkBox_no_isAnswer_CheckedChanged);
             // 
             // checkBox_yes_isAnswer
             // 
@@ -138,7 +139,7 @@
             this.checkBox_yes_isAnswer.TabIndex = 20;
             this.checkBox_yes_isAnswer.Text = "is Answer";
             this.checkBox_yes_isAnswer.UseVisualStyleBackColor = true;
-            this.checkBox_yes_isAnswer.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox_yes_isAnswer.CheckedChanged += new System.EventHandler(this.checkBox_yes_isAnswer_CheckedChanged);
             // 
             // label3
             // 
@@ -159,6 +160,7 @@
             this.button_RemoveQuestion.TabIndex = 19;
             this.button_RemoveQuestion.Text = "Remove";
             this.button_RemoveQuestion.UseVisualStyleBackColor = true;
+            this.button_RemoveQuestion.Click += new System.EventHandler(this.button_RemoveQuestion_Click);
             // 
             // textBox_QuestionText
             // 
@@ -187,6 +189,7 @@
             this.button_DiscardTreeChanges.TabIndex = 17;
             this.button_DiscardTreeChanges.Text = "Discard changes";
             this.button_DiscardTreeChanges.UseVisualStyleBackColor = true;
+            this.button_DiscardTreeChanges.Click += new System.EventHandler(this.button_DiscardTreeChanges_Click);
             // 
             // button_UpdateTreeStructure
             // 
@@ -197,6 +200,7 @@
             this.button_UpdateTreeStructure.TabIndex = 17;
             this.button_UpdateTreeStructure.Text = "Save changes";
             this.button_UpdateTreeStructure.UseVisualStyleBackColor = true;
+            this.button_UpdateTreeStructure.Click += new System.EventHandler(this.button_UpdateTreeStructure_Click);
             // 
             // button_UpdateQuestion
             // 
@@ -207,6 +211,7 @@
             this.button_UpdateQuestion.TabIndex = 17;
             this.button_UpdateQuestion.Text = "Save Question";
             this.button_UpdateQuestion.UseVisualStyleBackColor = true;
+            this.button_UpdateQuestion.Click += new System.EventHandler(this.button_UpdateQuestion_Click);
             // 
             // comboBox_Questions
             // 
@@ -216,6 +221,7 @@
             this.comboBox_Questions.Name = "comboBox_Questions";
             this.comboBox_Questions.Size = new System.Drawing.Size(485, 24);
             this.comboBox_Questions.TabIndex = 11;
+            this.comboBox_Questions.SelectedIndexChanged += new System.EventHandler(this.comboBox_Questions_SelectedIndexChanged);
             // 
             // button_CreateQuetion
             // 
@@ -226,24 +232,29 @@
             this.button_CreateQuetion.TabIndex = 16;
             this.button_CreateQuetion.Text = "Create New";
             this.button_CreateQuetion.UseVisualStyleBackColor = true;
+            this.button_CreateQuetion.Click += new System.EventHandler(this.button_CreateQuetion_Click);
             // 
             // comboBox_no_leaf
             // 
+            this.comboBox_no_leaf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_no_leaf.FormattingEnabled = true;
             this.comboBox_no_leaf.Location = new System.Drawing.Point(329, 230);
             this.comboBox_no_leaf.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_no_leaf.Name = "comboBox_no_leaf";
             this.comboBox_no_leaf.Size = new System.Drawing.Size(160, 24);
             this.comboBox_no_leaf.TabIndex = 2;
+            this.comboBox_no_leaf.SelectedIndexChanged += new System.EventHandler(this.comboBox_no_leaf_SelectedIndexChanged);
             // 
             // comboBox_yes_leaf
             // 
+            this.comboBox_yes_leaf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_yes_leaf.FormattingEnabled = true;
             this.comboBox_yes_leaf.Location = new System.Drawing.Point(83, 230);
             this.comboBox_yes_leaf.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_yes_leaf.Name = "comboBox_yes_leaf";
             this.comboBox_yes_leaf.Size = new System.Drawing.Size(160, 24);
             this.comboBox_yes_leaf.TabIndex = 2;
+            this.comboBox_yes_leaf.SelectedIndexChanged += new System.EventHandler(this.comboBox_yes_leaf_SelectedIndexChanged);
             // 
             // radioButton2
             // 
@@ -276,8 +287,8 @@
             this.dataGridView_Questions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Questions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_title});
-            this.dataGridView_Questions.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridView_Questions.Location = new System.Drawing.Point(4, 4);
+            this.dataGridView_Questions.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dataGridView_Questions.Location = new System.Drawing.Point(543, 4);
             this.dataGridView_Questions.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_Questions.Name = "dataGridView_Questions";
             this.dataGridView_Questions.ReadOnly = true;
@@ -286,6 +297,7 @@
             this.dataGridView_Questions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Questions.Size = new System.Drawing.Size(247, 362);
             this.dataGridView_Questions.TabIndex = 0;
+            this.dataGridView_Questions.Visible = false;
             // 
             // Column_title
             // 
@@ -318,7 +330,7 @@
             this.panel2.Controls.Add(this.comboBox_Answers);
             this.panel2.Controls.Add(this.button_CreateAnswer);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(257, 4);
+            this.panel2.Location = new System.Drawing.Point(4, 4);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(545, 362);
@@ -402,8 +414,8 @@
             this.dataGridView_Answers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Answers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dataGridView_Answers.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridView_Answers.Location = new System.Drawing.Point(4, 4);
+            this.dataGridView_Answers.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dataGridView_Answers.Location = new System.Drawing.Point(549, 4);
             this.dataGridView_Answers.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_Answers.Name = "dataGridView_Answers";
             this.dataGridView_Answers.ReadOnly = true;
@@ -412,6 +424,7 @@
             this.dataGridView_Answers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Answers.Size = new System.Drawing.Size(253, 362);
             this.dataGridView_Answers.TabIndex = 0;
+            this.dataGridView_Answers.Visible = false;
             // 
             // Column1
             // 
@@ -425,7 +438,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 399);
+            this.ClientSize = new System.Drawing.Size(802, 399);
             this.Controls.Add(this.tabControl_Criteries);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormEdit";

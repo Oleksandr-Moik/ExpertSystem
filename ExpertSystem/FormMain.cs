@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
@@ -148,7 +149,7 @@ namespace ExpertSystem
 
         public void AddAnswer(string text)
         {
-            string key = GenerateUniqueStringKey(text);
+            string key = GenerateUniqueStringKey();
             AnswerList.Add(new KeyValuePair<string, string>(key, text));
         }
 
@@ -177,33 +178,71 @@ namespace ExpertSystem
             }
         }
 
-        public void GetAnswer(string key)
+        public KeyValuePair<string, string> GetAnswer(string key)
         {
-
+            foreach(KeyValuePair<string, string> answer in AnswerList)
+            {
+                if(answer.Key == key)
+                {
+                    return answer;
+                }
+            }
+            return new KeyValuePair<string, string>();
         }
 
 
-        public Question AddQuestion(Question q)
+        public void AddQuestion(Question q)
         {
-            return null;
+            QuestionList.Add(q);
         }
 
         public void RemoveQuestion(string key)
         {
-
+            foreach(Question question in QuestionList)
+            {
+                if (question.KeyIndex == key)
+                {
+                    QuestionList.Remove(question);
+                    break;
+                }
+            }
         }
 
         public void UpdateQuestion(string key, Question q)
         {
-
+            foreach (Question question in QuestionList)
+            {
+                if (question.KeyIndex == key)
+                {
+                    q.KeyIndex = question.KeyIndex;
+                    q.NextLeftAnswer_KeyIndex = question.NextLeftAnswer_KeyIndex;
+                    q.NextRightAnswer_KeyIndex = question.NextRightAnswer_KeyIndex;
+                    q.NextLeftQuestion__KeyIndex = question.NextLeftQuestion__KeyIndex;
+                    q.NextRightQuestion_KeyIndex = question.NextRightQuestion_KeyIndex;
+                    q.NextLeftLeaf_IsAnswer = question.NextLeftLeaf_IsAnswer;
+                    q.NextRightLeaf_IsAnswer= question.NextRightLeaf_IsAnswer;
+                    
+                    QuestionList.Remove(question);
+                    QuestionList.Add(q);
+                    
+                    break;
+                }
+            }
         }
 
-        public void GetQuetion(string key)
+        public Question GetQuetion(string key)
         {
-
+            foreach(Question question in QuestionList)
+            {
+                if(question.KeyIndex == key)
+                {
+                    return question;
+                }
+            }
+            return new Question("","");
         }
 
-        public string GenerateUniqueStringKey(string salt)
+        public static string GenerateUniqueStringKey()
         {
             StringBuilder builder = new StringBuilder();
             Random random = new Random();
@@ -216,7 +255,6 @@ namespace ExpertSystem
                     Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 97)));
                 builder.Append(ch);
             }
-            builder.Append(Convert.ToInt64(salt[random.Next(0, salt.Length)]));
             builder.Append(dateTime.Millisecond.ToString());
             return builder.ToString();
         }
@@ -225,7 +263,6 @@ namespace ExpertSystem
         {
         
         }
-
         
     }
 
