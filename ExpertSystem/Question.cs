@@ -9,30 +9,30 @@ namespace ExpertSystem
     [Serializable]
     public class Question : Object
     {
-        public string KeyIndex { get; set; }
+        public string Key { get; set; }
         public string Text { get; set; }
 
-        public string NextLeftQuestion__KeyIndex { get; set; }
-        public string NextRightQuestion_KeyIndex { get; set; }
+        public string NextYesQuestion__KeyIndex { get; set; }
+        public string NextNoQuestion_KeyIndex { get; set; }
 
-        public string NextLeftAnswer_KeyIndex { get; set; }
-        public string NextRightAnswer_KeyIndex { get; set; }
+        public string NextYesAnswer_KeyIndex { get; set; }
+        public string NextNoAnswer_KeyIndex { get; set; }
 
-        public bool NextLeftLeaf_IsAnswer { get; set; }
-        public bool NextRightLeaf_IsAnswer { get; set; }
+        public bool NextYesChild_IsAnswer { get; set; }
+        public bool NextNoChild_IsAnswer { get; set; }
 
         public Question(string key, string text)
         {
-            this.KeyIndex = key;
+            this.Key = key;
             this.Text = text;
             
-            NextLeftQuestion__KeyIndex = null;
-            NextRightQuestion_KeyIndex = null;
-            NextLeftAnswer_KeyIndex = null;
-            NextRightAnswer_KeyIndex = null;
+            NextYesQuestion__KeyIndex = null;
+            NextNoQuestion_KeyIndex = null;
+            NextYesAnswer_KeyIndex = null;
+            NextNoAnswer_KeyIndex = null;
 
-            NextLeftLeaf_IsAnswer = false;
-            NextRightLeaf_IsAnswer = false;
+            NextYesChild_IsAnswer = false;
+            NextNoChild_IsAnswer = false;
         }
     }
 }

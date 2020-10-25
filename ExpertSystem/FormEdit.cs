@@ -19,8 +19,8 @@ namespace ExpertSystem
         
         //private string SelectedQuestionKey;
         private Question SelectedQuestion;
-        private KeyValuePair<string, string> Leaf_YesLeft;
-        private KeyValuePair<string, string> Leaf_NoRight;
+        private KeyValuePair<string, string> Child_Yes;
+        private KeyValuePair<string, string> Child_No;
 
         public FormEdit(FormMain fromMain)
         {
@@ -77,7 +77,7 @@ namespace ExpertSystem
             foreach (Question question in formMain.GetQuestionList())
             {
                 comboBox.Items.Add(question.Text);
-                if (question.KeyIndex == key)
+                if (question.Key == key)
                 {
                     comboBox.SelectedIndex = comboBox.Items.Count - 1;
                 }
@@ -151,36 +151,36 @@ namespace ExpertSystem
             SelectedQuestion = SelectQuestion(((ComboBox)sender).SelectedIndex);
 
             textBox_QuestionText.Text = SelectedQuestion.Text;
-            comboBox_yes_leaf.Text = "";
-            comboBox_no_leaf.Text = "";
+            comboBox_yes_child.Text = "";
+            comboBox_no_child.Text = "";
             //if (SelectedQuestion.Text == "Question test") SelectedQuestion.KeyIndex = "head";
 
-            if (SelectedQuestion.NextLeftLeaf_IsAnswer) // yes
+            if (SelectedQuestion.NextYesChild_IsAnswer) // yes
             {
                 checkBox_yes_isAnswer.Checked = true;
-                Leaf_YesLeft = formMain.GetAnswer(SelectedQuestion.NextLeftAnswer_KeyIndex);
-                LoadAnswersToComboBox(comboBox_yes_leaf, Leaf_YesLeft.Key);
+                Child_Yes = formMain.GetAnswer(SelectedQuestion.NextYesAnswer_KeyIndex);
+                LoadAnswersToComboBox(comboBox_yes_child, Child_Yes.Key);
             }
             else
             {
                 checkBox_yes_isAnswer.Checked = false;
-                Question question = formMain.GetQuetion(SelectedQuestion.NextLeftQuestion__KeyIndex);
-                Leaf_YesLeft = new KeyValuePair<string, string>(question.KeyIndex,question.Text);
-                LoadQuestionsToComboBox(comboBox_yes_leaf, Leaf_YesLeft.Key);
+                Question question = formMain.GetQuetion(SelectedQuestion.NextYesQuestion__KeyIndex);
+                Child_Yes = new KeyValuePair<string, string>(question.Key,question.Text);
+                LoadQuestionsToComboBox(comboBox_yes_child, Child_Yes.Key);
             }
 
-            if (SelectedQuestion.NextRightLeaf_IsAnswer) //no
+            if (SelectedQuestion.NextNoChild_IsAnswer) //no
             {
                 checkBox_no_isAnswer.Checked = true;
-                Leaf_NoRight = formMain.GetAnswer(SelectedQuestion.NextRightAnswer_KeyIndex);
-                LoadAnswersToComboBox(comboBox_no_leaf, Leaf_NoRight.Key);
+                Child_No = formMain.GetAnswer(SelectedQuestion.NextNoAnswer_KeyIndex);
+                LoadAnswersToComboBox(comboBox_no_child, Child_No.Key);
             }
             else
             {
                 checkBox_no_isAnswer.Checked = false;
-                Question question = formMain.GetQuetion(SelectedQuestion.NextRightQuestion_KeyIndex);
-                Leaf_NoRight = new KeyValuePair<string, string>(question.KeyIndex, question.Text);
-                LoadQuestionsToComboBox(comboBox_no_leaf, Leaf_NoRight.Key);
+                Question question = formMain.GetQuetion(SelectedQuestion.NextNoQuestion_KeyIndex);
+                Child_No = new KeyValuePair<string, string>(question.Key, question.Text);
+                LoadQuestionsToComboBox(comboBox_no_child, Child_No.Key);
             }
         }
 
@@ -189,25 +189,25 @@ namespace ExpertSystem
             Question question = new Question(FormMain.GenerateUniqueStringKey(), textBox_QuestionText.Text);
             SelectedQuestion = question;
 
-            SelectedQuestion.NextLeftLeaf_IsAnswer = checkBox_yes_isAnswer.Checked;
-            SelectedQuestion.NextRightLeaf_IsAnswer = checkBox_no_isAnswer.Checked;
+            SelectedQuestion.NextYesChild_IsAnswer = checkBox_yes_isAnswer.Checked;
+            SelectedQuestion.NextNoChild_IsAnswer = checkBox_no_isAnswer.Checked;
 
             if (checkBox_yes_isAnswer.Checked)
             {
-                SelectedQuestion.NextLeftAnswer_KeyIndex = Leaf_YesLeft.Key;
+                SelectedQuestion.NextYesAnswer_KeyIndex = Child_Yes.Key;
             }
             else
             {
-                SelectedQuestion.NextLeftQuestion__KeyIndex = Leaf_YesLeft.Key;
+                SelectedQuestion.NextYesQuestion__KeyIndex = Child_Yes.Key;
             }
 
             if (checkBox_yes_isAnswer.Checked)
             {
-                SelectedQuestion.NextRightAnswer_KeyIndex = Leaf_NoRight.Key;
+                SelectedQuestion.NextNoAnswer_KeyIndex = Child_No.Key;
             }
             else
             {
-                SelectedQuestion.NextRightQuestion_KeyIndex = Leaf_NoRight.Key;
+                SelectedQuestion.NextNoQuestion_KeyIndex = Child_No.Key;
             }
             
             formMain.AddQuestion(SelectedQuestion);
@@ -218,7 +218,7 @@ namespace ExpertSystem
 
         private void button_RemoveQuestion_Click(object sender, EventArgs e)
         {
-            formMain.RemoveQuestion(SelectedQuestion.KeyIndex);
+            formMain.RemoveQuestion(SelectedQuestion.Key);
             LoadQuestionListToComboAndGrid(comboBox_Questions, dataGridView_Questions);
         }
 
@@ -226,7 +226,7 @@ namespace ExpertSystem
         {
             SelectedQuestion.Text = textBox_QuestionText.Text;
 
-            formMain.UpdateQuestion(SelectedQuestion.KeyIndex, SelectedQuestion);            
+            formMain.UpdateQuestion(SelectedQuestion.Key, SelectedQuestion);            
             formMain.SaveQuestionListToFile();
             LoadQuestionListToComboAndGrid(comboBox_Questions, dataGridView_Questions);
             comboBox_Questions.SelectedIndex = comboBox_Questions.Items.Count - 1;
@@ -234,28 +234,28 @@ namespace ExpertSystem
 
         private void button_UpdateTreeStructure_Click(object sender, EventArgs e)
         {
-            SelectedQuestion.NextLeftLeaf_IsAnswer = checkBox_yes_isAnswer.Checked;
-            SelectedQuestion.NextRightLeaf_IsAnswer = checkBox_no_isAnswer.Checked;
+            SelectedQuestion.NextYesChild_IsAnswer = checkBox_yes_isAnswer.Checked;
+            SelectedQuestion.NextNoChild_IsAnswer = checkBox_no_isAnswer.Checked;
 
             if (checkBox_yes_isAnswer.Checked)
             {
-                SelectedQuestion.NextLeftAnswer_KeyIndex = Leaf_YesLeft.Key;
+                SelectedQuestion.NextYesAnswer_KeyIndex = Child_Yes.Key;
             }
             else
             {
-                SelectedQuestion.NextLeftQuestion__KeyIndex = Leaf_YesLeft.Key;
+                SelectedQuestion.NextYesQuestion__KeyIndex = Child_Yes.Key;
             }
 
             if (checkBox_no_isAnswer.Checked)
             {
-                SelectedQuestion.NextRightAnswer_KeyIndex = Leaf_NoRight.Key;
+                SelectedQuestion.NextNoAnswer_KeyIndex = Child_No.Key;
             }
             else
             {
-                SelectedQuestion.NextRightQuestion_KeyIndex = Leaf_NoRight.Key;
+                SelectedQuestion.NextNoQuestion_KeyIndex = Child_No.Key;
             }
 
-            formMain.UpdateQuestion(SelectedQuestion.KeyIndex, SelectedQuestion);
+            formMain.UpdateQuestion(SelectedQuestion.Key, SelectedQuestion);
             formMain.SaveQuestionListToFile();
             LoadQuestionListToComboAndGrid(comboBox_Questions, dataGridView_Questions);
             comboBox_Questions.SelectedIndex = comboBox_Questions.Items.Count - 1;
@@ -270,51 +270,51 @@ namespace ExpertSystem
 
         private void checkBox_yes_isAnswer_CheckedChanged(object sender, EventArgs e)
         {
-            comboBox_yes_leaf.Text = "";
+            comboBox_yes_child.Text = "";
             if (checkBox_yes_isAnswer.Checked)
             {
-                LoadAnswersToComboBox(comboBox_yes_leaf, Leaf_YesLeft.Key);
+                LoadAnswersToComboBox(comboBox_yes_child, Child_Yes.Key);
             }
             else
             {
-                LoadQuestionsToComboBox(comboBox_yes_leaf, Leaf_YesLeft.Key);
+                LoadQuestionsToComboBox(comboBox_yes_child, Child_Yes.Key);
             }
         }
         private void checkBox_no_isAnswer_CheckedChanged(object sender, EventArgs e)
         {
-            comboBox_no_leaf.Text = "";
+            comboBox_no_child.Text = "";
             if (checkBox_no_isAnswer.Checked)
             {
-                LoadAnswersToComboBox(comboBox_no_leaf, Leaf_NoRight.Key);
+                LoadAnswersToComboBox(comboBox_no_child, Child_No.Key);
             }
             else
             {
-                LoadQuestionsToComboBox(comboBox_no_leaf, Leaf_NoRight.Key);
+                LoadQuestionsToComboBox(comboBox_no_child, Child_No.Key);
             }
         }
 
-        private void comboBox_yes_leaf_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox_yes_child_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (checkBox_yes_isAnswer.Checked)
             {
-                Leaf_YesLeft = SelectAnswer(((ComboBox)sender).SelectedIndex);
+                Child_Yes = SelectAnswer(((ComboBox)sender).SelectedIndex);
             }
             else
             {
                 Question q = SelectQuestion(((ComboBox)sender).SelectedIndex);
-                Leaf_YesLeft = new KeyValuePair<string, string>(q.KeyIndex, q.Text);
+                Child_Yes = new KeyValuePair<string, string>(q.Key, q.Text);
             }
         }
-        private void comboBox_no_leaf_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox_no_child_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (checkBox_no_isAnswer.Checked)
             {
-                Leaf_NoRight = SelectAnswer(((ComboBox)sender).SelectedIndex);
+                Child_No = SelectAnswer(((ComboBox)sender).SelectedIndex);
             }
             else
             {
                 Question q = SelectQuestion(((ComboBox)sender).SelectedIndex);
-                Leaf_NoRight = new KeyValuePair<string, string>(q.KeyIndex, q.Text);
+                Child_No = new KeyValuePair<string, string>(q.Key, q.Text);
             }
         }
     }

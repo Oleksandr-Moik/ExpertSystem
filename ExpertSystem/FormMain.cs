@@ -76,7 +76,7 @@ namespace ExpertSystem
             string text = CurrentQuestion.Text;
             
             CurrentQuestion = GetQuetion(key);
-            if (CurrentQuestion.Text != CurrentQuestion.KeyIndex)
+            if (CurrentQuestion.Text != CurrentQuestion.Key)
             {
                 richTextBox_content.Text = CurrentQuestion.Text + "\n\n";
             }
@@ -218,7 +218,7 @@ namespace ExpertSystem
         {
             foreach(Question question in QuestionList)
             {
-                if (question.KeyIndex == key)
+                if (question.Key == key)
                 {
                     QuestionList.Remove(question);
                     break;
@@ -229,15 +229,15 @@ namespace ExpertSystem
         {
             foreach (Question question in QuestionList)
             {
-                if (question.KeyIndex == key)
+                if (question.Key == key)
                 {
-                    q.KeyIndex = question.KeyIndex;
-                    q.NextLeftAnswer_KeyIndex = question.NextLeftAnswer_KeyIndex;
-                    q.NextRightAnswer_KeyIndex = question.NextRightAnswer_KeyIndex;
-                    q.NextLeftQuestion__KeyIndex = question.NextLeftQuestion__KeyIndex;
-                    q.NextRightQuestion_KeyIndex = question.NextRightQuestion_KeyIndex;
-                    q.NextLeftLeaf_IsAnswer = question.NextLeftLeaf_IsAnswer;
-                    q.NextRightLeaf_IsAnswer= question.NextRightLeaf_IsAnswer;
+                    q.Key = question.Key;
+                    q.NextYesAnswer_KeyIndex = question.NextYesAnswer_KeyIndex;
+                    q.NextNoAnswer_KeyIndex = question.NextNoAnswer_KeyIndex;
+                    q.NextYesQuestion__KeyIndex = question.NextYesQuestion__KeyIndex;
+                    q.NextNoQuestion_KeyIndex = question.NextNoQuestion_KeyIndex;
+                    q.NextYesChild_IsAnswer = question.NextYesChild_IsAnswer;
+                    q.NextNoChild_IsAnswer= question.NextNoChild_IsAnswer;
                     
                     QuestionList.Remove(question);
                     QuestionList.Add(q);
@@ -250,7 +250,7 @@ namespace ExpertSystem
         {
             foreach(Question question in QuestionList)
             {
-                if(question.KeyIndex == key)
+                if(question.Key == key)
                 {
                     return question;
                 }
@@ -278,7 +278,38 @@ namespace ExpertSystem
 
         private void button_Next_Click(object sender, EventArgs e)
         {
-        
+            if (radioButton_yes.Checked)
+            {
+                LoadNextYesChild();
+            }
+            else
+            {
+                LoadNextNoChild();
+            }
+        }
+
+        private void LoadNextYesChild()
+        {
+            if (CurrentQuestion.NextYesChild_IsAnswer)
+            {
+                LoadAnswer(CurrentQuestion.NextYesAnswer_KeyIndex);
+            }
+            else
+            {
+
+            }
+        }
+
+        private void LoadNextNoChild()
+        {
+            if (CurrentQuestion.NextNoChild_IsAnswer)
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
 

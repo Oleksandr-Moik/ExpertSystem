@@ -42,8 +42,8 @@
             this.button_UpdateQuestion = new System.Windows.Forms.Button();
             this.comboBox_Questions = new System.Windows.Forms.ComboBox();
             this.button_CreateQuetion = new System.Windows.Forms.Button();
-            this.comboBox_no_leaf = new System.Windows.Forms.ComboBox();
-            this.comboBox_yes_leaf = new System.Windows.Forms.ComboBox();
+            this.comboBox_no_child = new System.Windows.Forms.ComboBox();
+            this.comboBox_yes_child = new System.Windows.Forms.ComboBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.dataGridView_Questions = new System.Windows.Forms.DataGridView();
@@ -106,8 +106,8 @@
             this.panel3.Controls.Add(this.button_UpdateQuestion);
             this.panel3.Controls.Add(this.comboBox_Questions);
             this.panel3.Controls.Add(this.button_CreateQuetion);
-            this.panel3.Controls.Add(this.comboBox_no_leaf);
-            this.panel3.Controls.Add(this.comboBox_yes_leaf);
+            this.panel3.Controls.Add(this.comboBox_no_child);
+            this.panel3.Controls.Add(this.comboBox_yes_child);
             this.panel3.Controls.Add(this.radioButton2);
             this.panel3.Controls.Add(this.radioButton1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -236,25 +236,25 @@
             // 
             // comboBox_no_leaf
             // 
-            this.comboBox_no_leaf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_no_leaf.FormattingEnabled = true;
-            this.comboBox_no_leaf.Location = new System.Drawing.Point(329, 230);
-            this.comboBox_no_leaf.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox_no_leaf.Name = "comboBox_no_leaf";
-            this.comboBox_no_leaf.Size = new System.Drawing.Size(160, 24);
-            this.comboBox_no_leaf.TabIndex = 2;
-            this.comboBox_no_leaf.SelectedIndexChanged += new System.EventHandler(this.comboBox_no_leaf_SelectedIndexChanged);
+            this.comboBox_no_child.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_no_child.FormattingEnabled = true;
+            this.comboBox_no_child.Location = new System.Drawing.Point(329, 230);
+            this.comboBox_no_child.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox_no_child.Name = "comboBox_no_leaf";
+            this.comboBox_no_child.Size = new System.Drawing.Size(160, 24);
+            this.comboBox_no_child.TabIndex = 2;
+            this.comboBox_no_child.SelectedIndexChanged += new System.EventHandler(this.comboBox_no_child_SelectedIndexChanged);
             // 
             // comboBox_yes_leaf
             // 
-            this.comboBox_yes_leaf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_yes_leaf.FormattingEnabled = true;
-            this.comboBox_yes_leaf.Location = new System.Drawing.Point(83, 230);
-            this.comboBox_yes_leaf.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox_yes_leaf.Name = "comboBox_yes_leaf";
-            this.comboBox_yes_leaf.Size = new System.Drawing.Size(160, 24);
-            this.comboBox_yes_leaf.TabIndex = 2;
-            this.comboBox_yes_leaf.SelectedIndexChanged += new System.EventHandler(this.comboBox_yes_leaf_SelectedIndexChanged);
+            this.comboBox_yes_child.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_yes_child.FormattingEnabled = true;
+            this.comboBox_yes_child.Location = new System.Drawing.Point(83, 230);
+            this.comboBox_yes_child.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox_yes_child.Name = "comboBox_yes_leaf";
+            this.comboBox_yes_child.Size = new System.Drawing.Size(160, 24);
+            this.comboBox_yes_child.TabIndex = 2;
+            this.comboBox_yes_child.SelectedIndexChanged += new System.EventHandler(this.comboBox_yes_child_SelectedIndexChanged);
             // 
             // radioButton2
             // 
@@ -474,8 +474,8 @@
         private System.Windows.Forms.Button button_CreateAnswer;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ComboBox comboBox_no_leaf;
-        private System.Windows.Forms.ComboBox comboBox_yes_leaf;
+        private System.Windows.Forms.ComboBox comboBox_no_child;
+        private System.Windows.Forms.ComboBox comboBox_yes_child;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.CheckBox checkBox_no_isAnswer;
         private System.Windows.Forms.CheckBox checkBox_yes_isAnswer;
