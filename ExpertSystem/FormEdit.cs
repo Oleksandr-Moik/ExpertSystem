@@ -46,7 +46,7 @@ namespace ExpertSystem
             
             foreach (Question question in formMain.GetQuestionList())
             {
-                dataGridView_Questions.Rows.Add(question.Text);
+                dataGridView_Questions.Rows.Add(new object[]{ question.Text, question.Key });
                 comboBox_Questions.Items.Add(question.Text);
             }
             if (comboBox_Questions.Items.Count != 0)
