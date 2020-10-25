@@ -60,14 +60,14 @@
             resources.ApplyResources(this.radioButton_no, "radioButton_no");
             this.radioButton_no.Name = "radioButton_no";
             this.radioButton_no.UseVisualStyleBackColor = true;
+            this.radioButton_no.CheckedChanged += new System.EventHandler(this.radioButton_no_CheckedChanged);
             // 
             // radioButton_yes
             // 
             resources.ApplyResources(this.radioButton_yes, "radioButton_yes");
-            this.radioButton_yes.Checked = true;
             this.radioButton_yes.Name = "radioButton_yes";
-            this.radioButton_yes.TabStop = true;
             this.radioButton_yes.UseVisualStyleBackColor = true;
+            this.radioButton_yes.CheckedChanged += new System.EventHandler(this.radioButton_yes_CheckedChanged);
             // 
             // button_next
             // 
@@ -88,7 +88,7 @@
             resources.ApplyResources(this.button_launch, "button_launch");
             this.button_launch.Name = "button_launch";
             this.button_launch.UseVisualStyleBackColor = true;
-            this.button_launch.Click += new System.EventHandler(this.button2_Click);
+            this.button_launch.Click += new System.EventHandler(this.button_launch_Click);
             // 
             // FormMain
             // 

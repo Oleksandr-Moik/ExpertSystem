@@ -22,6 +22,7 @@ namespace ExpertSystem
     public partial class FormMain : Form
     {
         public static bool DEBUG = true;
+        public const string HeadQuestionKey = "DwReCgViRhDn916";
 
         public const string QuestionsFilePath = ".\\questions.bin";
         public const string AnswersFilePath = ".\\Answers.bin";
@@ -42,7 +43,7 @@ namespace ExpertSystem
             AnswerList = new List<KeyValuePair<string, string>>();
 
             LoadListsFromFiles(ref QuestionList, ref AnswerList);
-            CurrentQuestion = GetQuetion("HfSiNiYdDqWs522");
+            CurrentQuestion = GetQuetion(HeadQuestionKey);
         }
 
         /// <summary>
@@ -65,10 +66,12 @@ namespace ExpertSystem
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
+        private void button_launch_Click(object sender, EventArgs e)
         {
             groupBox1.Enabled = true;
-            LoadQuestion("HfSiNiYdDqWs522");
+            radioButton_no.Enabled = true;
+            radioButton_yes.Enabled = true;
+            LoadQuestion(HeadQuestionKey);
         }
 
         private void LoadQuestion(string key)
@@ -88,9 +91,21 @@ namespace ExpertSystem
             }
         }
 
-        private void LoadAnswer()
+        private void LoadAnswer(string key)
         {
-
+            KeyValuePair<string, string> answer = GetAnswer(key);
+            if (answer.Key != "")
+            {
+                richTextBox_content.Text = answer.Value;
+            }
+            else
+            {
+                richTextBox_content.Text = "Question with keyIndex " + key + " not founded\n" +
+                    "Previous question - " + CurrentQuestion.Text;
+            }
+            radioButton_no.Enabled = false;
+            radioButton_yes.Enabled = false;
+            button_next.Enabled = false;
         }
 
         public void SaveQuestionListToFile()
@@ -207,7 +222,7 @@ namespace ExpertSystem
                     return answer;
                 }
             }
-            return new KeyValuePair<string, string>();
+            return new KeyValuePair<string, string>("","");
         }
 
         public void AddQuestion(Question q)
@@ -278,6 +293,10 @@ namespace ExpertSystem
 
         private void button_Next_Click(object sender, EventArgs e)
         {
+            radioButton_no.Checked = false;
+            radioButton_yes.Checked = false;
+            button_next.Enabled = false;
+
             if (radioButton_yes.Checked)
             {
                 LoadNextYesChild();
@@ -296,7 +315,7 @@ namespace ExpertSystem
             }
             else
             {
-
+                LoadQuestion(CurrentQuestion.NextYesQuestion__KeyIndex);
             }
         }
 
@@ -304,12 +323,22 @@ namespace ExpertSystem
         {
             if (CurrentQuestion.NextNoChild_IsAnswer)
             {
-
+                LoadAnswer(CurrentQuestion.NextNoAnswer_KeyIndex);
             }
             else
             {
-
+                LoadQuestion(CurrentQuestion.NextNoQuestion_KeyIndex);
             }
+        }
+
+        private void radioButton_yes_CheckedChanged(object sender, EventArgs e)
+        {
+            button_next.Enabled = true;
+        }
+
+        private void radioButton_no_CheckedChanged(object sender, EventArgs e)
+        {
+            button_next.Enabled = true;
         }
     }
 
