@@ -29,7 +29,7 @@ namespace ExpertSystem
         private ArrayList QuestionList;
         private List<KeyValuePair<string,string>> AnswerList;
 
-        private Question question;
+        private Question CurrentQuestion;
 
         public FormMain()
         {
@@ -42,6 +42,7 @@ namespace ExpertSystem
             AnswerList = new List<KeyValuePair<string, string>>();
 
             LoadListsFromFiles(ref QuestionList, ref AnswerList);
+            CurrentQuestion = GetQuetion("HfSiNiYdDqWs522");
         }
 
         /// <summary>
@@ -67,6 +68,29 @@ namespace ExpertSystem
         private void button2_Click(object sender, EventArgs e)
         {
             groupBox1.Enabled = true;
+            LoadQuestion("HfSiNiYdDqWs522");
+        }
+
+        private void LoadQuestion(string key)
+        {
+            string text = CurrentQuestion.Text;
+            
+            CurrentQuestion = GetQuetion(key);
+            if (CurrentQuestion.Text != CurrentQuestion.KeyIndex)
+            {
+                richTextBox_content.Text = CurrentQuestion.Text + "\n\n";
+            }
+            else
+            {
+                richTextBox_content.Text ="Question with keyIndex "+key+" not founded\n" +
+                    "Previous question - " + text;
+                button_next.Enabled = false;
+            }
+        }
+
+        private void LoadAnswer()
+        {
+
         }
 
         public void SaveQuestionListToFile()
@@ -78,7 +102,6 @@ namespace ExpertSystem
         {
             this.SaveListsToFiles(null, AnswerList);
         }
-
         private void SaveListsToFiles(ArrayList questionList, List<KeyValuePair<string, string>> AnswerList)
         {
             IFormatter formatter = new BinaryFormatter();
@@ -97,7 +120,6 @@ namespace ExpertSystem
                 stream.Close();
             }
         }
-
         private void LoadListsFromFiles(ref ArrayList questionList, ref List<KeyValuePair<string, string>> AnswerList)
         {
             IFormatter formatter = new BinaryFormatter();
@@ -143,7 +165,6 @@ namespace ExpertSystem
         {
             return QuestionList;
         }
-
         public List<KeyValuePair<string, string>> GetAnswerList()
         {
             return AnswerList;
@@ -154,7 +175,6 @@ namespace ExpertSystem
             string key = GenerateUniqueStringKey();
             AnswerList.Add(new KeyValuePair<string, string>(key, text));
         }
-
         public void RemoveAnswer(string key)
         {
             foreach(KeyValuePair<string, string> ansver in AnswerList)
@@ -166,7 +186,6 @@ namespace ExpertSystem
                 }
             }
         }
-
         public void UpdateAnswer(string key, string new_text)
         {
             foreach (KeyValuePair<string, string> ansver in AnswerList)
@@ -179,7 +198,6 @@ namespace ExpertSystem
                 }
             }
         }
-
         public KeyValuePair<string, string> GetAnswer(string key)
         {
             foreach(KeyValuePair<string, string> answer in AnswerList)
@@ -192,12 +210,10 @@ namespace ExpertSystem
             return new KeyValuePair<string, string>();
         }
 
-
         public void AddQuestion(Question q)
         {
             QuestionList.Add(q);
         }
-
         public void RemoveQuestion(string key)
         {
             foreach(Question question in QuestionList)
@@ -209,7 +225,6 @@ namespace ExpertSystem
                 }
             }
         }
-
         public void UpdateQuestion(string key, Question q)
         {
             foreach (Question question in QuestionList)
@@ -231,7 +246,6 @@ namespace ExpertSystem
                 }
             }
         }
-
         public Question GetQuetion(string key)
         {
             foreach(Question question in QuestionList)
@@ -262,13 +276,10 @@ namespace ExpertSystem
         }
 
 
-
-
         private void button_Next_Click(object sender, EventArgs e)
         {
         
         }
-        
     }
 
 }
