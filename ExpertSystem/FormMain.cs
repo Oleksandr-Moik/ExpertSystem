@@ -22,7 +22,6 @@ namespace ExpertSystem
     public partial class FormMain : Form
     {
         public static bool DEBUG = true;
-        public const string HeadQuestionKey = "DwReCgViRhDn916";
 
         public const string QuestionsFilePath = ".\\questions.bin";
         public const string AnswersFilePath = ".\\Answers.bin";
@@ -43,7 +42,18 @@ namespace ExpertSystem
             AnswerList = new List<KeyValuePair<string, string>>();
 
             LoadListsFromFiles(ref QuestionList, ref AnswerList);
-            CurrentQuestion = GetQuetion(HeadQuestionKey);
+            CurrentQuestion = GetQuetion(GetHeadQuestionKey());
+        }
+
+        private string GetHeadQuestionKey()
+        {
+            string FilePath = ".\\head.txt";
+            FileStream fileStream = new FileStream(FilePath, FileMode.OpenOrCreate, FileAccess.Read);
+            StreamReader streamReader = new StreamReader(fileStream, Encoding.UTF8);
+            string key = streamReader.ReadLine();
+            streamReader.Close();
+            fileStream.Close();
+            return key;
         }
 
         /// <summary>
@@ -71,7 +81,7 @@ namespace ExpertSystem
             groupBox1.Enabled = true;
             radioButton_no.Enabled = true;
             radioButton_yes.Enabled = true;
-            LoadQuestion(HeadQuestionKey);
+            LoadQuestion(GetHeadQuestionKey());
         }
 
         private void LoadQuestion(string key)
