@@ -223,13 +223,13 @@
     <value>Microsoft Sans Serif, 13.8pt, style=Bold</value>
   </data>
   <data name="button_next.Location" type="System.Drawing.Point, System.Drawing">
-    <value>211, 197</value>
+    <value>174, 197</value>
   </data>
   <data name="button_next.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="button_next.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 54</value>
+    <value>229, 54</value>
   </data>
   <data name="button_next.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -289,13 +289,13 @@
     <value>Microsoft Sans Serif, 12pt, style=Italic</value>
   </data>
   <data name="button_edit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 4</value>
+    <value>293, 4</value>
   </data>
   <data name="button_edit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="button_edit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 49</value>
+    <value>272, 49</value>
   </data>
   <data name="button_edit.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -372,18 +372,6 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 26</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>Help</value>
-  </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 24</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>File</value>
-  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -407,6 +395,18 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 24</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 26</value>
+  </data>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Help</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
