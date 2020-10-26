@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExpertSystem.Properties;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -89,15 +91,17 @@ namespace ExpertSystem
             string text = CurrentQuestion.Text;
             
             CurrentQuestion = GetQuetion(key);
-            if (CurrentQuestion.Text != CurrentQuestion.Key)
+            if (CurrentQuestion.Key != "")
             {
-                richTextBox_content.Text = CurrentQuestion.Text + "\n\n";
+                richTextBox_content.Text = CurrentQuestion.Text;
             }
             else
             {
-                richTextBox_content.Text ="Question with keyIndex "+key+" not founded\n" +
+                richTextBox_content.Text = "Question with keyIndex "+key+" not founded\n" +
                     "Previous question - " + text;
-                button_next.Enabled = false;
+                radioButton_no.Visible = false;
+                radioButton_yes.Visible = false;
+                button_next.Visible = false;
             }
         }
 
@@ -106,16 +110,17 @@ namespace ExpertSystem
             KeyValuePair<string, string> answer = GetAnswer(key);
             if (answer.Key != "")
             {
-                richTextBox_content.Text = answer.Value;
+                richTextBox_content.Text = "Висновок системи:\nВам підходить\n";
+                richTextBox_content.Text += answer.Value;
             }
             else
             {
                 richTextBox_content.Text = "Question with keyIndex " + key + " not founded\n" +
                     "Previous question - " + CurrentQuestion.Text;
             }
-            radioButton_no.Enabled = false;
-            radioButton_yes.Enabled = false;
-            button_next.Enabled = false;
+            radioButton_no.Visible = false;
+            radioButton_yes.Visible = false;
+            button_next.Visible = false;
         }
 
         public void SaveQuestionListToFile()
@@ -303,10 +308,6 @@ namespace ExpertSystem
 
         private void button_Next_Click(object sender, EventArgs e)
         {
-            radioButton_no.Checked = false;
-            radioButton_yes.Checked = false;
-            button_next.Enabled = false;
-
             if (radioButton_yes.Checked)
             {
                 LoadNextYesChild();
@@ -315,6 +316,10 @@ namespace ExpertSystem
             {
                 LoadNextNoChild();
             }
+
+            radioButton_no.Checked = false;
+            radioButton_yes.Checked = false;
+            button_next.Visible = false;
         }
 
         private void LoadNextYesChild()
@@ -343,12 +348,28 @@ namespace ExpertSystem
 
         private void radioButton_yes_CheckedChanged(object sender, EventArgs e)
         {
-            button_next.Enabled = true;
+            button_next.Visible = true;
         }
 
         private void radioButton_no_CheckedChanged(object sender, EventArgs e)
         {
-            button_next.Enabled = true;
+            button_next.Visible = true;
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(".\\..\\..\\Helper\\help_test.chm");
+            }
+            catch (FileNotFoundException)
+            {
+                System.Diagnostics.Process.Start(".\\Helper\\help_test.chm");
+            }
+            catch (Exception)
+            {
+                Directory.CreateDirectory(".\\Helper");
+            }
         }
     }
 
