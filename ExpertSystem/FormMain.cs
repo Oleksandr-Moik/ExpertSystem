@@ -80,10 +80,11 @@ namespace ExpertSystem
         /// <param name="e"></param>
         private void button_launch_Click(object sender, EventArgs e)
         {
-            groupBox1.Enabled = true;
-            radioButton_no.Enabled = true;
-            radioButton_yes.Enabled = true;
             LoadQuestion(GetHeadQuestionKey());
+
+            radioButton_no.Visible = true;
+            radioButton_yes.Visible = true;
+            groupBox1.Enabled = true;
         }
 
         private void LoadQuestion(string key)
@@ -360,16 +361,17 @@ namespace ExpertSystem
         {
             try
             {
-                System.Diagnostics.Process.Start(".\\..\\..\\Helper\\help_test.chm");
-            }
-            catch (FileNotFoundException)
-            {
                 System.Diagnostics.Process.Start(".\\Helper\\help_test.chm");
             }
             catch (Exception)
             {
-                Directory.CreateDirectory(".\\Helper");
+                return;
             }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 

@@ -59,15 +59,5 @@ namespace ExpertSystem.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] help_test {
-            get {
-                object obj = ResourceManager.GetObject("help_test", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }
