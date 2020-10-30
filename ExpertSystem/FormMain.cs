@@ -57,52 +57,50 @@ namespace ExpertSystem
             fileStream.Close();
             return key;
         }
-
-        /// <summary>
-        /// edit button
-        /// <para>open edit form as dialog</para>
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        public static string GenerateUniqueStringKey()
         {
-            this.Hide();
-            if ((new FormEdit(this)).ShowDialog() == DialogResult.Cancel)
+            StringBuilder builder = new StringBuilder();
+            Random random = new Random();
+            DateTime dateTime = DateTime.Now;
+            char ch;
+            for (int i = 0; i < 12; i++)
             {
-                this.Show();
-            };
+                ch = (i % 2 == 0) ?
+                    Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65))) :
+                    Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 97)));
+                builder.Append(ch);
+            }
+            builder.Append(dateTime.Millisecond.ToString());
+            return builder.ToString();
         }
 
-        /// <summary>
-        /// launch test
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button_launch_Click(object sender, EventArgs e)
+        private void EnableButtons()
         {
-            LoadQuestion(GetHeadQuestionKey());
-
-            radioButton_no.Visible = true;
-            radioButton_yes.Visible = true;
-            groupBox1.Enabled = true;
+            button1.Enabled = true;
+            button2.Enabled = true;
         }
-
+        private void DisableButtons()
+        {
+            button1.Enabled = true;
+            button2.Enabled = true;
+        }
         private void LoadQuestion(string key)
         {
-            string text = CurrentQuestion.Text;
+            string privious_text = CurrentQuestion.Text;
             
             CurrentQuestion = GetQuetion(key);
             if (CurrentQuestion.Key != "")
             {
                 richTextBox_content.Text = CurrentQuestion.Text;
+                button1.Text = CurrentQuestion.LeftText;
+                button2.Text = CurrentQuestion.RightText;
+                EnableButtons();
             }
             else
             {
                 richTextBox_content.Text = "Question with keyIndex "+key+" not founded\n" +
-                    "Previous question - " + text;
-                radioButton_no.Visible = false;
-                radioButton_yes.Visible = false;
-                button_next.Visible = false;
+                    "Previous question - " + privious_text;
+                DisableButtons();
             }
         }
 
@@ -119,16 +117,13 @@ namespace ExpertSystem
                 richTextBox_content.Text = "Question with keyIndex " + key + " not founded\n" +
                     "Previous question - " + CurrentQuestion.Text;
             }
-            radioButton_no.Visible = false;
-            radioButton_yes.Visible = false;
-            button_next.Visible = false;
+            DisableButtons();
         }
 
         public void SaveQuestionListToFile()
         {
             this.SaveListsToFiles(QuestionList, null);
         }
-
         public void SaveAnswerListToFile()
         {
             this.SaveListsToFiles(null, AnswerList);
@@ -151,6 +146,7 @@ namespace ExpertSystem
                 stream.Close();
             }
         }
+        
         private void LoadListsFromFiles(ref ArrayList questionList, ref List<KeyValuePair<string, string>> AnswerList)
         {
             IFormatter formatter = new BinaryFormatter();
@@ -262,6 +258,7 @@ namespace ExpertSystem
             {
                 if (question.Key == key)
                 {
+                    // todo updating quetion
                     q.Key = question.Key;
                     q.NextLeftAnswer_KeyIndex = question.NextLeftAnswer_KeyIndex;
                     q.NextRightAnswer_KeyIndex = question.NextRightAnswer_KeyIndex;
@@ -289,72 +286,46 @@ namespace ExpertSystem
             return new Question("","");
         }
 
-        public static string GenerateUniqueStringKey()
+
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            StringBuilder builder = new StringBuilder();
-            Random random = new Random();
-            DateTime dateTime = DateTime.Now;
-            char ch;
-            for (int i = 0; i < 12; i++)
-            {
-                ch = (i%2==0)? 
-                    Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65))):
-                    Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 97)));
-                builder.Append(ch);
-            }
-            builder.Append(dateTime.Millisecond.ToString());
-            return builder.ToString();
+            LoadLeftChild();
         }
 
-
-        private void button_Next_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            if (radioButton_yes.Checked)
-            {
-                LoadNextLeftChild();
-            }
-            else
-            {
-                LoadNexRightChild();
-            }
-
-            radioButton_no.Checked = false;
-            radioButton_yes.Checked = false;
-            button_next.Visible = false;
+            LoadRightChild();
         }
 
-        private void LoadNextLeftChild()
+        private void LoadLeftChild()
         {
+            // todo change property on child elements
             if (CurrentQuestion.LeftChild_IsAnswer)
             {
+                //LoadAnswer(CurrentQuestion.LeftChild);
                 LoadAnswer(CurrentQuestion.NextLeftAnswer_KeyIndex);
             }
             else
             {
+                //LoadQuestion(CurrentQuestion.LeftChild);
                 LoadQuestion(CurrentQuestion.NextLeftQuestion__KeyIndex);
             }
         }
 
-        private void LoadNexRightChild()
+        private void LoadRightChild()
         {
+            // todo change property on child elements
             if (CurrentQuestion.RightChild_IsAnswer)
             {
+                //LoadAnswer(CurrentQuestion.RightChild);
                 LoadAnswer(CurrentQuestion.NextRightAnswer_KeyIndex);
             }
             else
             {
+                //LoadQuestion(CurrentQuestion.RightChild);
                 LoadQuestion(CurrentQuestion.NextRightQuestion_KeyIndex);
             }
-        }
-
-        private void radioButton_yes_CheckedChanged(object sender, EventArgs e)
-        {
-            button_next.Visible = true;
-        }
-
-        private void radioButton_no_CheckedChanged(object sender, EventArgs e)
-        {
-            button_next.Visible = true;
         }
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -369,19 +340,19 @@ namespace ExpertSystem
             }
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
+        private void startTestingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadQuestion(GetHeadQuestionKey());
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void editSystemToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
+            this.Hide();
+            if ((new FormEditStructure(this)).ShowDialog() == DialogResult.Cancel)
+            {
+                this.Show();
+            };
         }
     }
 

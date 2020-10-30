@@ -118,76 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button_edit.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="button_edit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>519, 372</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="button_edit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
-  </data>
-  <data name="button_edit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>408, 41</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="button_edit.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="button_edit.Text" xml:space="preserve">
-    <value>Edit System</value>
-  </data>
-  <data name="&gt;&gt;button_edit.Name" xml:space="preserve">
-    <value>button_edit</value>
-  </data>
-  <data name="&gt;&gt;button_edit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button_edit.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;button_edit.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="button_launch.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="button_launch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>519, 328</value>
-  </data>
-  <data name="button_launch.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
-  </data>
-  <data name="button_launch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>408, 41</value>
-  </data>
-  <data name="button_launch.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="button_launch.Text" xml:space="preserve">
-    <value>Launch system</value>
-  </data>
-  <data name="&gt;&gt;button_launch.Name" xml:space="preserve">
-    <value>button_launch</value>
-  </data>
-  <data name="&gt;&gt;button_launch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button_launch.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;button_launch.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>124, 26</value>
   </data>
   <data name="helpToolStripMenuItem.Text" xml:space="preserve">
     <value>Help</value>
   </data>
   <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>124, 26</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Exit</value>
@@ -216,12 +154,14 @@
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>12, 3, 0, 3</value>
   </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>813, 30</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -238,127 +178,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="button_next.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="button_next.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button_next.Location" type="System.Drawing.Point, System.Drawing">
-    <value>318, 357</value>
-  </data>
-  <data name="button_next.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
-  </data>
-  <data name="button_next.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 44</value>
-  </data>
-  <data name="button_next.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="button_next.Text" xml:space="preserve">
-    <value>Next</value>
-  </data>
-  <data name="button_next.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;button_next.Name" xml:space="preserve">
-    <value>button_next</value>
-  </data>
-  <data name="&gt;&gt;button_next.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button_next.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;button_next.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="radioButton_yes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioButton_yes.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="radioButton_yes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioButton_yes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 363</value>
-  </data>
-  <data name="radioButton_yes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
-  </data>
-  <data name="radioButton_yes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 33</value>
-  </data>
-  <data name="radioButton_yes.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="radioButton_yes.Text" xml:space="preserve">
-    <value>Yes</value>
-  </data>
-  <data name="&gt;&gt;radioButton_yes.Name" xml:space="preserve">
-    <value>radioButton_yes</value>
-  </data>
-  <data name="&gt;&gt;radioButton_yes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButton_yes.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;radioButton_yes.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="radioButton_no.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioButton_no.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="radioButton_no.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioButton_no.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 391</value>
-  </data>
-  <data name="radioButton_no.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
-  </data>
-  <data name="radioButton_no.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 33</value>
-  </data>
-  <data name="radioButton_no.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="radioButton_no.Text" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="&gt;&gt;radioButton_no.Name" xml:space="preserve">
-    <value>radioButton_no</value>
-  </data>
-  <data name="&gt;&gt;radioButton_no.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButton_no.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;radioButton_no.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>2</value>
   </data>
   <data name="richTextBox_content.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 13.8pt, style=Bold</value>
   </data>
   <data name="richTextBox_content.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 36</value>
+    <value>16, 65</value>
   </data>
   <data name="richTextBox_content.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 6, 6, 6</value>
   </data>
   <data name="richTextBox_content.Size" type="System.Drawing.Size, System.Drawing">
-    <value>782, 223</value>
+    <value>782, 100</value>
   </data>
   <data name="richTextBox_content.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -376,13 +208,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;richTextBox_content.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>1</value>
+  </data>
+  <data name="button1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="button1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 278</value>
+    <value>0, 0</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 41</value>
+    <value>399, 50</value>
   </data>
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -397,19 +235,25 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;button1.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="button2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="button2.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>301, 278</value>
+    <value>414, 0</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 41</value>
+    <value>399, 50</value>
   </data>
   <data name="button2.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -424,9 +268,33 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;button2.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 205</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>813, 50</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -436,13 +304,10 @@
     <value>12, 25</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>813, 428</value>
+    <value>813, 255</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>12, 11, 12, 11</value>

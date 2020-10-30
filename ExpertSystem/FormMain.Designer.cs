@@ -29,37 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.button_edit = new System.Windows.Forms.Button();
-            this.button_launch = new System.Windows.Forms.Button();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.button_next = new System.Windows.Forms.Button();
-            this.radioButton_yes = new System.Windows.Forms.RadioButton();
-            this.radioButton_no = new System.Windows.Forms.RadioButton();
+            this.startTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editSystemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox_content = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editSystemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button_edit
-            // 
-            resources.ApplyResources(this.button_edit, "button_edit");
-            this.button_edit.Name = "button_edit";
-            this.button_edit.UseVisualStyleBackColor = true;
-            this.button_edit.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button_launch
-            // 
-            resources.ApplyResources(this.button_launch, "button_launch");
-            this.button_launch.ForeColor = System.Drawing.Color.Black;
-            this.button_launch.Name = "button_launch";
-            this.button_launch.UseVisualStyleBackColor = true;
-            this.button_launch.Click += new System.EventHandler(this.button_launch_Click);
             // 
             // fileToolStripMenuItem
             // 
@@ -75,6 +57,11 @@
             resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
+            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -84,31 +71,22 @@
             this.editSystemToolStripMenuItem1});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
-            // button_next
+            // startTestingToolStripMenuItem
             // 
-            resources.ApplyResources(this.button_next, "button_next");
-            this.button_next.Name = "button_next";
-            this.button_next.UseVisualStyleBackColor = true;
-            this.button_next.Click += new System.EventHandler(this.button_Next_Click);
+            this.startTestingToolStripMenuItem.Name = "startTestingToolStripMenuItem";
+            resources.ApplyResources(this.startTestingToolStripMenuItem, "startTestingToolStripMenuItem");
+            this.startTestingToolStripMenuItem.Click += new System.EventHandler(this.startTestingToolStripMenuItem_Click);
             // 
-            // radioButton_yes
+            // editSystemToolStripMenuItem1
             // 
-            resources.ApplyResources(this.radioButton_yes, "radioButton_yes");
-            this.radioButton_yes.Name = "radioButton_yes";
-            this.radioButton_yes.UseVisualStyleBackColor = true;
-            this.radioButton_yes.CheckedChanged += new System.EventHandler(this.radioButton_yes_CheckedChanged);
-            // 
-            // radioButton_no
-            // 
-            resources.ApplyResources(this.radioButton_no, "radioButton_no");
-            this.radioButton_no.Name = "radioButton_no";
-            this.radioButton_no.UseVisualStyleBackColor = true;
-            this.radioButton_no.CheckedChanged += new System.EventHandler(this.radioButton_no_CheckedChanged);
+            this.editSystemToolStripMenuItem1.Name = "editSystemToolStripMenuItem1";
+            resources.ApplyResources(this.editSystemToolStripMenuItem1, "editSystemToolStripMenuItem1");
+            this.editSystemToolStripMenuItem1.Click += new System.EventHandler(this.editSystemToolStripMenuItem1_Click);
             // 
             // richTextBox_content
             // 
+            this.richTextBox_content.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             resources.ApplyResources(this.richTextBox_content, "richTextBox_content");
             this.richTextBox_content.Name = "richTextBox_content";
             this.richTextBox_content.ReadOnly = true;
@@ -127,34 +105,20 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // exitToolStripMenuItem
+            // panel1
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
-            // 
-            // startTestingToolStripMenuItem
-            // 
-            this.startTestingToolStripMenuItem.Name = "startTestingToolStripMenuItem";
-            resources.ApplyResources(this.startTestingToolStripMenuItem, "startTestingToolStripMenuItem");
-            // 
-            // editSystemToolStripMenuItem1
-            // 
-            this.editSystemToolStripMenuItem1.Name = "editSystemToolStripMenuItem1";
-            resources.ApplyResources(this.editSystemToolStripMenuItem1, "editSystemToolStripMenuItem1");
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
             // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGreen;
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button_launch);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.richTextBox_content);
-            this.Controls.Add(this.button_edit);
-            this.Controls.Add(this.radioButton_no);
-            this.Controls.Add(this.radioButton_yes);
-            this.Controls.Add(this.button_next);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -162,26 +126,23 @@
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button_edit;
-        private System.Windows.Forms.Button button_launch;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startTestingToolStripMenuItem;
-        private System.Windows.Forms.Button button_next;
-        private System.Windows.Forms.RadioButton radioButton_yes;
-        private System.Windows.Forms.RadioButton radioButton_no;
         private System.Windows.Forms.RichTextBox richTextBox_content;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem editSystemToolStripMenuItem1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

@@ -12,14 +12,12 @@ namespace ExpertSystem
 {
     public partial class FormEditStructure : Form
     {
-        public FormEditStructure()
+        private FormMain _FormMain;
+        public FormEditStructure(FormMain formMain)
         {
             InitializeComponent();
-        }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
+            _FormMain = formMain;
         }
     }
 }
