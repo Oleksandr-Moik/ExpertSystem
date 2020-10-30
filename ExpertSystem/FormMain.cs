@@ -205,10 +205,11 @@ namespace ExpertSystem
             return AnswerList;
         }
 
-        public void AddAnswer(string text)
+        public string AddAnswer(string text)
         {
             string key = GenerateUniqueStringKey();
             AnswerList.Add(new KeyValuePair<string, string>(key, text));
+            return key;
         }
         public void RemoveAnswer(string key)
         {

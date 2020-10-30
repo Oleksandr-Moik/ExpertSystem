@@ -12,7 +12,8 @@ namespace ExpertSystem
 {
     public partial class FormEditStructure : Form
     {
-        private FormMain formMain;
+        public FormMain formMain;
+
         private Question SelectedQuestion;
         private KeyValuePair<string, string> LeftChild_KeyText;
         private KeyValuePair<string, string> RightChild_KeyText;
@@ -28,7 +29,7 @@ namespace ExpertSystem
             LoadQuestionsToComboBox(comboBox1, FormMain.GetHeadQuestionKey());
         }
 
-        private void LoadQuestionsToComboBox(ComboBox comboBox, string key)
+        public void LoadQuestionsToComboBox(ComboBox comboBox, string key)
         {
             comboBox.Items.Clear();
             foreach (Question question in formMain.GetQuestionList())
@@ -44,7 +45,7 @@ namespace ExpertSystem
                 if(comboBox.Items.Count!=0)comboBox.SelectedIndex = 0;
             }
         }
-        private void LoadAnswersToComboBox(ComboBox comboBox, string key)
+        public void LoadAnswersToComboBox(ComboBox comboBox, string key)
         {
             comboBox.Items.Clear();
             foreach (KeyValuePair<string, string> answer in formMain.GetAnswerList())
@@ -54,6 +55,10 @@ namespace ExpertSystem
                 {
                     comboBox.SelectedIndex = comboBox.Items.Count - 1;
                 }
+            }
+            if (key == "")
+            {
+                if (comboBox.Items.Count != 0) comboBox.SelectedIndex = 0;
             }
         }
 
@@ -109,14 +114,14 @@ namespace ExpertSystem
         // form question
         private void button5_Click(object sender, EventArgs e)
         {
-            FormEditQuestions formEditQuestions = new FormEditQuestions();
-            formEditQuestions.StartPosition = FormStartPosition.CenterParent;
-            formEditQuestions.ShowDialog();
+            //FormEditQuestions formEditQuestions = new FormEditQuestions(this);
+            //formEditQuestions.StartPosition = FormStartPosition.CenterParent;
+            //formEditQuestions.ShowDialog();
         }
         // form answers
         private void button3_Click(object sender, EventArgs e)
         {
-            FormEditAnswers formEditAnswers = new FormEditAnswers();
+            FormEditAnswers formEditAnswers = new FormEditAnswers(this);
             formEditAnswers.StartPosition = FormStartPosition.CenterParent;
             formEditAnswers.ShowDialog();
         }
