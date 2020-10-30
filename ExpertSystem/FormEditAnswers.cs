@@ -42,7 +42,7 @@ namespace ExpertSystem
         {
             formEditStructure.formMain.RemoveAnswer(SelectedAnswer.Key);
             formEditStructure.formMain.SaveAnswerListToFile();
-            formEditStructure.LoadAnswersToComboBox(comboBox1, FormMain.GetHeadQuestionKey());
+            formEditStructure.LoadAnswersToComboBox(comboBox1, "");
         }
         // edit
         private void button2_Click(object sender, EventArgs e)

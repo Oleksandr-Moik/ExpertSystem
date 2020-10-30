@@ -40,7 +40,7 @@ namespace ExpertSystem
                     comboBox.SelectedIndex = comboBox.Items.Count - 1;
                 }
             }
-            if (key == "")
+            if (key == "" || comboBox.SelectedIndex==-1)
             {
                 if(comboBox.Items.Count!=0)comboBox.SelectedIndex = 0;
             }
@@ -104,11 +104,11 @@ namespace ExpertSystem
             comboBox3.Text = "";
             if (checkBox2.Checked)
             {
-                LoadAnswersToComboBox(comboBox3, LeftChild_KeyText.Key);
+                LoadAnswersToComboBox(comboBox3, RightChild_KeyText.Key);
             }
             else
             {
-                LoadQuestionsToComboBox(comboBox3, LeftChild_KeyText.Key);
+                LoadQuestionsToComboBox(comboBox3, RightChild_KeyText.Key);
             }
         }
         // form question
@@ -117,6 +117,7 @@ namespace ExpertSystem
             FormEditQuestions formEditQuestions = new FormEditQuestions(this);
             formEditQuestions.StartPosition = FormStartPosition.CenterParent;
             formEditQuestions.ShowDialog();
+            LoadQuestionsToComboBox(comboBox1, FormMain.GetHeadQuestionKey());
         }
         // form answers
         private void button3_Click(object sender, EventArgs e)
@@ -152,7 +153,7 @@ namespace ExpertSystem
             }
             else
             {
-                Question question = formMain.GetQuetion(SelectedQuestion.NextLeftQuestion__KeyIndex);
+                Question question = formMain.GetQuetion(SelectedQuestion.LeftChild);
                 LeftChild_KeyText = new KeyValuePair<string, string>(question.Key, question.Text);
                 LoadQuestionsToComboBox(comboBox2, LeftChild_KeyText.Key);
             }

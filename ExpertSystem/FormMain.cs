@@ -89,8 +89,8 @@ namespace ExpertSystem
         }
         private void DisableButtons()
         {
-            button1.Enabled = true;
-            button2.Enabled = true;
+            button1.Enabled = false;
+            button2.Enabled = false;
         }
         private void LoadQuestion(string key)
         {
@@ -269,17 +269,6 @@ namespace ExpertSystem
             {
                 if (question.Key == q.Key)
                 {
-                    // todo updating quetion
-
-                    //q.Key = question.Key;
-
-                    //q.NextLeftAnswer_KeyIndex = question.NextLeftAnswer_KeyIndex;
-                    //q.NextRightAnswer_KeyIndex = question.NextRightAnswer_KeyIndex;
-                    //q.NextLeftQuestion__KeyIndex = question.NextLeftQuestion__KeyIndex;
-                    //q.NextRightQuestion_KeyIndex = question.NextRightQuestion_KeyIndex;
-                    //q.LeftChild_IsAnswer = question.LeftChild_IsAnswer;
-                    //q.RightChild_IsAnswer= question.RightChild_IsAnswer;
-                    
                     QuestionList.Remove(question);
                     QuestionList.Add(q);
                     
@@ -313,31 +302,25 @@ namespace ExpertSystem
 
         private void LoadLeftChild()
         {
-            // todo change property on child elements
             if (CurrentQuestion.LeftChild_IsAnswer)
             {
-                //LoadAnswer(CurrentQuestion.LeftChild);
-                LoadAnswer(CurrentQuestion.NextLeftAnswer_KeyIndex);
+                LoadAnswer(CurrentQuestion.LeftChild);
             }
             else
             {
-                //LoadQuestion(CurrentQuestion.LeftChild);
-                LoadQuestion(CurrentQuestion.NextLeftQuestion__KeyIndex);
+                LoadQuestion(CurrentQuestion.LeftChild);
             }
         }
 
         private void LoadRightChild()
         {
-            // todo change property on child elements
             if (CurrentQuestion.RightChild_IsAnswer)
             {
-                //LoadAnswer(CurrentQuestion.RightChild);
-                LoadAnswer(CurrentQuestion.NextRightAnswer_KeyIndex);
+                LoadAnswer(CurrentQuestion.RightChild);
             }
             else
             {
-                //LoadQuestion(CurrentQuestion.RightChild);
-                LoadQuestion(CurrentQuestion.NextRightQuestion_KeyIndex);
+                LoadQuestion(CurrentQuestion.RightChild);
             }
         }
 
