@@ -36,12 +36,14 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(19, 194);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(213, 42);
             this.button1.TabIndex = 0;
@@ -52,22 +54,24 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(260, 194);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(213, 42);
             this.button2.TabIndex = 1;
             this.button2.Text = "Update text";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(501, 194);
-            this.button3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button3.Margin = new System.Windows.Forms.Padding(5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(213, 42);
             this.button3.TabIndex = 2;
             this.button3.Text = "Create new";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label1
             // 
@@ -92,7 +96,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(203, 110);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(511, 34);
             this.textBox1.TabIndex = 6;
@@ -102,10 +106,11 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(203, 16);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(5);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(511, 37);
             this.comboBox1.TabIndex = 7;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button4
             // 
@@ -117,12 +122,37 @@
             this.button4.TabIndex = 1;
             this.button4.Text = "Finish";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // FromEditQuestions
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Location = new System.Drawing.Point(203, 62);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(113, 33);
+            this.checkBox1.TabIndex = 13;
+            this.checkBox1.Text = "is head";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button6.Location = new System.Drawing.Point(322, 66);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(289, 28);
+            this.button6.TabIndex = 12;
+            this.button6.Text = "Set as head / first question";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // FormEditQuestions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 301);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
@@ -132,9 +162,10 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.Name = "FromEditQuestions";
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Name = "FormEditQuestions";
             this.Text = "FromEditQuestions";
+            this.Load += new System.EventHandler(this.FormEditQuestions_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +181,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button6;
     }
 }

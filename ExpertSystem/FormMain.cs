@@ -205,7 +205,7 @@ namespace ExpertSystem
             return AnswerList;
         }
 
-        public string AddAnswer(string text)
+        public string CreateAndAddAnswer(string text)
         {
             string key = GenerateUniqueStringKey();
             AnswerList.Add(new KeyValuePair<string, string>(key, text));
@@ -246,9 +246,11 @@ namespace ExpertSystem
             return new KeyValuePair<string, string>("","");
         }
 
-        public void AddQuestion(Question q)
+        public string CreateAndAddQuestion(string text)
         {
-            QuestionList.Add(q);
+            string key = GenerateUniqueStringKey();
+            QuestionList.Add(new Question(key, text));
+            return key;
         }
         public void RemoveQuestion(string key)
         {

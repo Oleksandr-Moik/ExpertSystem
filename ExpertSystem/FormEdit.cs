@@ -124,7 +124,7 @@ namespace ExpertSystem
 
         private void button_CreateAnswer_Click(object sender, EventArgs e)
         {
-            formMain.AddAnswer(textBox_AnswerText.Text);
+            formMain.CreateAndAddAnswer(textBox_AnswerText.Text);
             LoadAnswerListToComboAndGrid();
             comboBox_Answers.SelectedIndex = comboBox_Answers.Items.Count - 1;
             formMain.SaveAnswerListToFile();
@@ -211,7 +211,7 @@ namespace ExpertSystem
                 SelectedQuestion.NextRightQuestion_KeyIndex = Child_No.Key;
             }
             
-            formMain.AddQuestion(SelectedQuestion);
+            //formMain.CreateAndAddQuestion(SelectedQuestion);
             formMain.SaveQuestionListToFile();
             LoadQuestionListToComboAndGrid();
             comboBox_Questions.SelectedIndex = comboBox_Questions.Items.Count - 1;

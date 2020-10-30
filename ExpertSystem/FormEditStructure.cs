@@ -114,9 +114,9 @@ namespace ExpertSystem
         // form question
         private void button5_Click(object sender, EventArgs e)
         {
-            //FormEditQuestions formEditQuestions = new FormEditQuestions(this);
-            //formEditQuestions.StartPosition = FormStartPosition.CenterParent;
-            //formEditQuestions.ShowDialog();
+            FormEditQuestions formEditQuestions = new FormEditQuestions(this);
+            formEditQuestions.StartPosition = FormStartPosition.CenterParent;
+            formEditQuestions.ShowDialog();
         }
         // form answers
         private void button3_Click(object sender, EventArgs e)
@@ -134,7 +134,7 @@ namespace ExpertSystem
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedQuestion = SelectQuestion(((ComboBox)sender).SelectedIndex);
-            CheckOnHeadQuestion();
+            CheckOnHeadQuestion(checkBox3, SelectedQuestion);
 
             comboBox2.Text = "";
             comboBox3.Text = "";
@@ -213,12 +213,12 @@ namespace ExpertSystem
         private void button6_Click(object sender, EventArgs e)
         {
             FormMain.SetHeadQuestion(SelectedQuestion.Key);
-            CheckOnHeadQuestion();
+            CheckOnHeadQuestion(checkBox3, SelectedQuestion);
         }
 
-        private void CheckOnHeadQuestion()
+        public static void CheckOnHeadQuestion(CheckBox checkBox, Question question)
         {
-            checkBox3.Checked = FormMain.GetHeadQuestionKey() == SelectedQuestion.Key;
+            checkBox.Checked = FormMain.GetHeadQuestionKey() == question.Key;
         }
     }
 }
