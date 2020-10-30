@@ -46,5 +46,25 @@ namespace ExpertSystem
             NextLeftAnswer_KeyIndex = null;
             NextRightAnswer_KeyIndex = null;
         }
+
+        public Question(Question question)
+        {
+            this.Key = question.Key;
+            this.Text = question.Text;
+
+            this.LeftText = question.LeftText;
+            this.RightText = question.RightText;
+
+            this.LeftChild_IsAnswer = question.LeftChild_IsAnswer;
+            this.RightChild_IsAnswer = question.RightChild_IsAnswer;
+
+            this.LeftChild = question.LeftChild;
+            this.RightChild = question.RightChild;
+
+            this.NextLeftQuestion__KeyIndex = question.NextLeftQuestion__KeyIndex;
+            this.NextRightQuestion_KeyIndex = question.NextRightQuestion_KeyIndex;
+            this.NextLeftAnswer_KeyIndex = question.NextLeftAnswer_KeyIndex;
+            this.NextRightAnswer_KeyIndex = question.NextRightAnswer_KeyIndex;
+        }
     }
 }
