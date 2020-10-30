@@ -97,6 +97,7 @@ namespace ExpertSystem
             }
         }
 
+
         private void comboBox_Answers_SelectedIndexChanged(object sender, EventArgs e)
         {
             KeyValuePair<string, string> answer = SelectAnswer(((ComboBox)sender).SelectedIndex);
@@ -226,7 +227,7 @@ namespace ExpertSystem
         {
             SelectedQuestion.Text = textBox_QuestionText.Text;
 
-            formMain.UpdateQuestion(SelectedQuestion.Key, SelectedQuestion);            
+            formMain.UpdateQuestion(SelectedQuestion);            
             formMain.SaveQuestionListToFile();
             LoadQuestionListToComboAndGrid();
             comboBox_Questions.SelectedIndex = comboBox_Questions.Items.Count - 1;
@@ -255,7 +256,7 @@ namespace ExpertSystem
                 SelectedQuestion.NextRightQuestion_KeyIndex = Child_No.Key;
             }
 
-            formMain.UpdateQuestion(SelectedQuestion.Key, SelectedQuestion);
+            formMain.UpdateQuestion(SelectedQuestion);
             formMain.SaveQuestionListToFile();
             LoadQuestionListToComboAndGrid();
             comboBox_Questions.SelectedIndex = comboBox_Questions.Items.Count - 1;

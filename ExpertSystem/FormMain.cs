@@ -27,6 +27,7 @@ namespace ExpertSystem
 
         public const string QuestionsFilePath = ".\\questions.bin";
         public const string AnswersFilePath = ".\\Answers.bin";
+        public const string HeadKeyFilePath = ".\\head.txt";
 
         private ArrayList QuestionList;
         private List<KeyValuePair<string,string>> AnswerList;
@@ -47,15 +48,22 @@ namespace ExpertSystem
             CurrentQuestion = GetQuetion(GetHeadQuestionKey());
         }
 
-        private string GetHeadQuestionKey()
+        public static string GetHeadQuestionKey()
         {
-            string FilePath = ".\\head.txt";
-            FileStream fileStream = new FileStream(FilePath, FileMode.OpenOrCreate, FileAccess.Read);
+            FileStream fileStream = new FileStream(HeadKeyFilePath, FileMode.OpenOrCreate, FileAccess.Read);
             StreamReader streamReader = new StreamReader(fileStream, Encoding.UTF8);
             string key = streamReader.ReadLine();
             streamReader.Close();
             fileStream.Close();
             return key;
+        }
+        public static void SetHeadQuestion(string key)
+        {
+            FileStream fileStream = new FileStream(HeadKeyFilePath, FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter streamWriter = new StreamWriter(fileStream, Encoding.UTF8);
+            streamWriter.WriteLine(key);
+            streamWriter.Close();
+            fileStream.Close();
         }
         public static string GenerateUniqueStringKey()
         {
@@ -252,20 +260,22 @@ namespace ExpertSystem
                 }
             }
         }
-        public void UpdateQuestion(string key, Question q)
+        public void UpdateQuestion(Question q)
         {
             foreach (Question question in QuestionList)
             {
-                if (question.Key == key)
+                if (question.Key == q.Key)
                 {
                     // todo updating quetion
-                    q.Key = question.Key;
-                    q.NextLeftAnswer_KeyIndex = question.NextLeftAnswer_KeyIndex;
-                    q.NextRightAnswer_KeyIndex = question.NextRightAnswer_KeyIndex;
-                    q.NextLeftQuestion__KeyIndex = question.NextLeftQuestion__KeyIndex;
-                    q.NextRightQuestion_KeyIndex = question.NextRightQuestion_KeyIndex;
-                    q.LeftChild_IsAnswer = question.LeftChild_IsAnswer;
-                    q.RightChild_IsAnswer= question.RightChild_IsAnswer;
+
+                    //q.Key = question.Key;
+
+                    //q.NextLeftAnswer_KeyIndex = question.NextLeftAnswer_KeyIndex;
+                    //q.NextRightAnswer_KeyIndex = question.NextRightAnswer_KeyIndex;
+                    //q.NextLeftQuestion__KeyIndex = question.NextLeftQuestion__KeyIndex;
+                    //q.NextRightQuestion_KeyIndex = question.NextRightQuestion_KeyIndex;
+                    //q.LeftChild_IsAnswer = question.LeftChild_IsAnswer;
+                    //q.RightChild_IsAnswer= question.RightChild_IsAnswer;
                     
                     QuestionList.Remove(question);
                     QuestionList.Add(q);
