@@ -349,7 +349,9 @@ namespace ExpertSystem
         private void editSystemToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            if ((new FormEditStructure(this)).ShowDialog() == DialogResult.Cancel)
+            Form form = new FormEditStructure(this);
+            form.StartPosition = FormStartPosition.CenterParent;
+            if (form.ShowDialog() == DialogResult.Cancel)
             {
                 this.Show();
             };

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ExpertSystem
 {
-    public partial class FromEditQuestions : Form
+    public partial class FormEditQuestions : Form
     {
-        public FromEditQuestions()
+        public FormEditQuestions()
         {
             InitializeComponent();
         }

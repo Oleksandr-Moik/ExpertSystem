@@ -1,6 +1,6 @@
 ﻿namespace ExpertSystem
 {
-    partial class FromEditQuestions
+    partial class FormEditQuestions
     {
         /// <summary>
         /// Required designer variable.
