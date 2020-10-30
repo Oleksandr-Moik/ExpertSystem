@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormEditAnswers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditAnswers.Designer.cs">
+      <DependentUpon>FormEditAnswers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditStructure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditStructure.Designer.cs">
+      <DependentUpon>FormEditStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromEditQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromEditQuestions.Designer.cs">
+      <DependentUpon>FromEditQuestions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Question.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -61,11 +79,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormEditAnswers.resx">
+      <DependentUpon>FormEditAnswers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditStructure.resx">
+      <DependentUpon>FormEditStructure.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEdit.resx">
       <DependentUpon>FormEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromEditQuestions.resx">
+      <DependentUpon>FromEditQuestions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
