@@ -155,30 +155,30 @@ namespace ExpertSystem
             comboBox_no_child.Text = "";
             //if (SelectedQuestion.Text == "Question test") SelectedQuestion.KeyIndex = "head";
 
-            if (SelectedQuestion.NextYesChild_IsAnswer) // yes
+            if (SelectedQuestion.LeftChild_IsAnswer) // yes
             {
                 checkBox_yes_isAnswer.Checked = true;
-                Child_Yes = formMain.GetAnswer(SelectedQuestion.NextYesAnswer_KeyIndex);
+                Child_Yes = formMain.GetAnswer(SelectedQuestion.NextLeftAnswer_KeyIndex);
                 LoadAnswersToComboBox(comboBox_yes_child, Child_Yes.Key);
             }
             else
             {
                 checkBox_yes_isAnswer.Checked = false;
-                Question question = formMain.GetQuetion(SelectedQuestion.NextYesQuestion__KeyIndex);
+                Question question = formMain.GetQuetion(SelectedQuestion.NextLeftQuestion__KeyIndex);
                 Child_Yes = new KeyValuePair<string, string>(question.Key,question.Text);
                 LoadQuestionsToComboBox(comboBox_yes_child, Child_Yes.Key);
             }
 
-            if (SelectedQuestion.NextNoChild_IsAnswer) //no
+            if (SelectedQuestion.RightChild_IsAnswer) //no
             {
                 checkBox_no_isAnswer.Checked = true;
-                Child_No = formMain.GetAnswer(SelectedQuestion.NextNoAnswer_KeyIndex);
+                Child_No = formMain.GetAnswer(SelectedQuestion.NextRightAnswer_KeyIndex);
                 LoadAnswersToComboBox(comboBox_no_child, Child_No.Key);
             }
             else
             {
                 checkBox_no_isAnswer.Checked = false;
-                Question question = formMain.GetQuetion(SelectedQuestion.NextNoQuestion_KeyIndex);
+                Question question = formMain.GetQuetion(SelectedQuestion.NextRightQuestion_KeyIndex);
                 Child_No = new KeyValuePair<string, string>(question.Key, question.Text);
                 LoadQuestionsToComboBox(comboBox_no_child, Child_No.Key);
             }
@@ -189,25 +189,25 @@ namespace ExpertSystem
             Question question = new Question(FormMain.GenerateUniqueStringKey(), textBox_QuestionText.Text);
             SelectedQuestion = question;
 
-            SelectedQuestion.NextYesChild_IsAnswer = checkBox_yes_isAnswer.Checked;
-            SelectedQuestion.NextNoChild_IsAnswer = checkBox_no_isAnswer.Checked;
+            SelectedQuestion.LeftChild_IsAnswer = checkBox_yes_isAnswer.Checked;
+            SelectedQuestion.RightChild_IsAnswer = checkBox_no_isAnswer.Checked;
 
             if (checkBox_yes_isAnswer.Checked)
             {
-                SelectedQuestion.NextYesAnswer_KeyIndex = Child_Yes.Key;
+                SelectedQuestion.NextLeftAnswer_KeyIndex = Child_Yes.Key;
             }
             else
             {
-                SelectedQuestion.NextYesQuestion__KeyIndex = Child_Yes.Key;
+                SelectedQuestion.NextLeftQuestion__KeyIndex = Child_Yes.Key;
             }
 
             if (checkBox_yes_isAnswer.Checked)
             {
-                SelectedQuestion.NextNoAnswer_KeyIndex = Child_No.Key;
+                SelectedQuestion.NextRightAnswer_KeyIndex = Child_No.Key;
             }
             else
             {
-                SelectedQuestion.NextNoQuestion_KeyIndex = Child_No.Key;
+                SelectedQuestion.NextRightQuestion_KeyIndex = Child_No.Key;
             }
             
             formMain.AddQuestion(SelectedQuestion);
@@ -234,25 +234,25 @@ namespace ExpertSystem
 
         private void button_UpdateTreeStructure_Click(object sender, EventArgs e)
         {
-            SelectedQuestion.NextYesChild_IsAnswer = checkBox_yes_isAnswer.Checked;
-            SelectedQuestion.NextNoChild_IsAnswer = checkBox_no_isAnswer.Checked;
+            SelectedQuestion.LeftChild_IsAnswer = checkBox_yes_isAnswer.Checked;
+            SelectedQuestion.RightChild_IsAnswer = checkBox_no_isAnswer.Checked;
 
             if (checkBox_yes_isAnswer.Checked)
             {
-                SelectedQuestion.NextYesAnswer_KeyIndex = Child_Yes.Key;
+                SelectedQuestion.NextLeftAnswer_KeyIndex = Child_Yes.Key;
             }
             else
             {
-                SelectedQuestion.NextYesQuestion__KeyIndex = Child_Yes.Key;
+                SelectedQuestion.NextLeftQuestion__KeyIndex = Child_Yes.Key;
             }
 
             if (checkBox_no_isAnswer.Checked)
             {
-                SelectedQuestion.NextNoAnswer_KeyIndex = Child_No.Key;
+                SelectedQuestion.NextRightAnswer_KeyIndex = Child_No.Key;
             }
             else
             {
-                SelectedQuestion.NextNoQuestion_KeyIndex = Child_No.Key;
+                SelectedQuestion.NextRightQuestion_KeyIndex = Child_No.Key;
             }
 
             formMain.UpdateQuestion(SelectedQuestion.Key, SelectedQuestion);

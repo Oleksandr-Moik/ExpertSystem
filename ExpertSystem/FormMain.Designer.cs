@@ -40,9 +40,9 @@
             this.richTextBox_content = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.editSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editSystemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +64,6 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editSystemToolStripMenuItem,
             this.helpToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -81,7 +80,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.startTestingToolStripMenuItem});
+            this.startTestingToolStripMenuItem,
+            this.editSystemToolStripMenuItem1});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -118,17 +118,14 @@
             resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
             resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // editSystemToolStripMenuItem
-            // 
-            this.editSystemToolStripMenuItem.Name = "editSystemToolStripMenuItem";
-            resources.ApplyResources(this.editSystemToolStripMenuItem, "editSystemToolStripMenuItem");
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -139,6 +136,11 @@
             // 
             this.startTestingToolStripMenuItem.Name = "startTestingToolStripMenuItem";
             resources.ApplyResources(this.startTestingToolStripMenuItem, "startTestingToolStripMenuItem");
+            // 
+            // editSystemToolStripMenuItem1
+            // 
+            this.editSystemToolStripMenuItem1.Name = "editSystemToolStripMenuItem1";
+            resources.ApplyResources(this.editSystemToolStripMenuItem1, "editSystemToolStripMenuItem1");
             // 
             // FormMain
             // 
@@ -171,7 +173,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem editSystemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startTestingToolStripMenuItem;
         private System.Windows.Forms.Button button_next;
@@ -180,6 +181,7 @@
         private System.Windows.Forms.RichTextBox richTextBox_content;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem editSystemToolStripMenuItem1;
     }
 }
 

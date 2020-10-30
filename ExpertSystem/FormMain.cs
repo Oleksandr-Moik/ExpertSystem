@@ -263,12 +263,12 @@ namespace ExpertSystem
                 if (question.Key == key)
                 {
                     q.Key = question.Key;
-                    q.NextYesAnswer_KeyIndex = question.NextYesAnswer_KeyIndex;
-                    q.NextNoAnswer_KeyIndex = question.NextNoAnswer_KeyIndex;
-                    q.NextYesQuestion__KeyIndex = question.NextYesQuestion__KeyIndex;
-                    q.NextNoQuestion_KeyIndex = question.NextNoQuestion_KeyIndex;
-                    q.NextYesChild_IsAnswer = question.NextYesChild_IsAnswer;
-                    q.NextNoChild_IsAnswer= question.NextNoChild_IsAnswer;
+                    q.NextLeftAnswer_KeyIndex = question.NextLeftAnswer_KeyIndex;
+                    q.NextRightAnswer_KeyIndex = question.NextRightAnswer_KeyIndex;
+                    q.NextLeftQuestion__KeyIndex = question.NextLeftQuestion__KeyIndex;
+                    q.NextRightQuestion_KeyIndex = question.NextRightQuestion_KeyIndex;
+                    q.LeftChild_IsAnswer = question.LeftChild_IsAnswer;
+                    q.RightChild_IsAnswer= question.RightChild_IsAnswer;
                     
                     QuestionList.Remove(question);
                     QuestionList.Add(q);
@@ -311,11 +311,11 @@ namespace ExpertSystem
         {
             if (radioButton_yes.Checked)
             {
-                LoadNextYesChild();
+                LoadNextLeftChild();
             }
             else
             {
-                LoadNextNoChild();
+                LoadNexRightChild();
             }
 
             radioButton_no.Checked = false;
@@ -323,27 +323,27 @@ namespace ExpertSystem
             button_next.Visible = false;
         }
 
-        private void LoadNextYesChild()
+        private void LoadNextLeftChild()
         {
-            if (CurrentQuestion.NextYesChild_IsAnswer)
+            if (CurrentQuestion.LeftChild_IsAnswer)
             {
-                LoadAnswer(CurrentQuestion.NextYesAnswer_KeyIndex);
+                LoadAnswer(CurrentQuestion.NextLeftAnswer_KeyIndex);
             }
             else
             {
-                LoadQuestion(CurrentQuestion.NextYesQuestion__KeyIndex);
+                LoadQuestion(CurrentQuestion.NextLeftQuestion__KeyIndex);
             }
         }
 
-        private void LoadNextNoChild()
+        private void LoadNexRightChild()
         {
-            if (CurrentQuestion.NextNoChild_IsAnswer)
+            if (CurrentQuestion.RightChild_IsAnswer)
             {
-                LoadAnswer(CurrentQuestion.NextNoAnswer_KeyIndex);
+                LoadAnswer(CurrentQuestion.NextRightAnswer_KeyIndex);
             }
             else
             {
-                LoadQuestion(CurrentQuestion.NextNoQuestion_KeyIndex);
+                LoadQuestion(CurrentQuestion.NextRightQuestion_KeyIndex);
             }
         }
 
@@ -370,6 +370,16 @@ namespace ExpertSystem
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

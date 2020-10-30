@@ -12,27 +12,39 @@ namespace ExpertSystem
         public string Key { get; set; }
         public string Text { get; set; }
 
-        public string NextYesQuestion__KeyIndex { get; set; }
-        public string NextNoQuestion_KeyIndex { get; set; }
+        public string NextLeftQuestion__KeyIndex { get; set; }
+        public string NextLeftAnswer_KeyIndex { get; set; }
+        
+        public string NextRightAnswer_KeyIndex { get; set; }
+        public string NextRightQuestion_KeyIndex { get; set; }
 
-        public string NextYesAnswer_KeyIndex { get; set; }
-        public string NextNoAnswer_KeyIndex { get; set; }
+        public string LeftChild { get; set; }
+        public string LeftText { get; set; }
+        public bool LeftChild_IsAnswer { get; set; }
 
-        public bool NextYesChild_IsAnswer { get; set; }
-        public bool NextNoChild_IsAnswer { get; set; }
+
+        public string RightChild{ get; set; }
+        public string RightText { get; set; }
+        public bool RightChild_IsAnswer { get; set; }
 
         public Question(string key, string text)
         {
-            this.Key = key;
-            this.Text = text;
-            
-            NextYesQuestion__KeyIndex = null;
-            NextNoQuestion_KeyIndex = null;
-            NextYesAnswer_KeyIndex = null;
-            NextNoAnswer_KeyIndex = null;
+            Key = key;
+            Text = text;
 
-            NextYesChild_IsAnswer = false;
-            NextNoChild_IsAnswer = false;
+            LeftText = "Yes";
+            RightText = "No";
+
+            LeftChild_IsAnswer = false;
+            RightChild_IsAnswer = false;
+
+            LeftChild = "";
+            RightChild = "";
+
+            NextLeftQuestion__KeyIndex = null;
+            NextRightQuestion_KeyIndex = null;
+            NextLeftAnswer_KeyIndex = null;
+            NextRightAnswer_KeyIndex = null;
         }
     }
 }
